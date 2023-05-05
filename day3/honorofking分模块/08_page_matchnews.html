@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/common.css">
+    <style>
+        .main .content-section {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+        
+        .main .content-section .content-left {
+            width: 872px;
+            height: 800px;
+        }
+        
+        .main .content-section .content-right {
+            width: 295px;
+            height: 500px;
+            background-color: aliceblue;
+        }
+        /* 视频列表 */
+        
+        .video-list {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        
+        .video_item {
+            display: block;
+            margin: 10px auto;
+            width: 212px;
+            height: 200px;
+        }
+        
+        .video_item:hover .album .cover {
+            /* display: block; */
+            opacity: 1;
+        }
+        
+        .video_item .album {
+            overflow: hidden;
+            border-radius: 3px;
+            position: relative;
+        }
+        
+        .video_item .album img {
+            width: 100%;
+        }
+        
+        .video_item .album .info {
+            height: 22px;
+            padding: 0 11px;
+            line-height: 22px;
+            position: absolute;
+            bottom: 0px;
+            left: 0px;
+            right: 0px;
+            background: rgba(0, 0, 0, .6);
+            display: flex;
+            justify-content: space-between;
+            font-size: 8px;
+            color: #fff;
+            transition: all 600ms ease-in;
+        }
+        
+        .video_item .album .info .info_count {
+            padding-left: 15px;
+            background: url(./images/header_sprite.png) no-repeat -256px -59px;
+        }
+        /* 视频遮罩层 */
+        
+        .video_item .album .cover {
+            /* display: none; */
+            opacity: 0;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            /* background-color: orange; */
+            background: rgba(0, 0, 0, .6);
+        }
+        
+        .video_item .album .cover .icon_play {
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+            width: 40px;
+            height: 40px;
+            background: url(./images/header_sprite.png) no-repeat -192px -64px;
+        }
+        /* 视频介绍 */
+        
+        .video_item .desc {
+            margin-top: 8px;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+        }
+        /* 赛事标题+内容 */
+        
+        .match-news {
+            display: flex;
+            height: 260px;
+            margin: 10px 0 8px;
+        }
+        
+        .match-news .news-left {
+            width: 221px;
+        }
+        
+        .news-right {
+            flex: 1;
+            overflow: hidden;
+            /* background-color: aqua; */
+        }
+        
+        .news-right .title {
+            font-size: 24px;
+            color: #333;
+        }
+        
+        .news-right .sub-title {
+            font-size: 14px;
+            color: #666;
+        }
+        
+        .news-right .content .item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 8px;
+        }
+        
+        .news-right .content .item .left-item {
+            font-size: 14px;
+        }
+        
+        .news-right .content .item .left-item i {
+            height: 19px;
+            line-height: 19px;
+            margin-right: 12px;
+            background: #e3e3e3;
+            border-radius: 10px;
+            border: 2px solid #e3e3e3;
+            text-align: center;
+            color: #999999;
+            text-indent: 2px;
+        }
+        
+        .news-right .content .item .left-item a:hover {
+            text-decoration: underline;
+        }
+        
+        .news-right .content .item .right-item {
+            color: #b8b9c5;
+            font-size: 12px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main main_wrap">
+        <div class="content-section">
+            <div class="content-left">
+                <div class="content-center">
+                    <!-- 内容中心 -->
+                    <div class="section_header">
+                        <div class="header_left">
+                            <h3 class="title">内容中心</h3>
+                        </div>
+                        <div class="header_right"><a href="#" class="more">更多</a></div>
+                    </div>
+                    <!-- tab control -->
+                    <div class="tab_control">
+                        <div class="tab_control_item active">精品栏目</div>
+                        <div class="tab_control_line"></div>
+                        <div class="tab_control_item">赛事精品</div>
+                        <div class="tab_control_line"></div>
+                        <div class="tab_control_item">英雄攻略</div>
+                    </div>
+                    <!-- key word -->
+                    <div class="tab_keyword">
+                        <div class="item active">最新</div>
+                        <div class="item">峡谷大气层</div>
+                        <div class="item">马菠萝奇闻录</div>
+                        <div class="item">狄仁杰封神榜</div>
+                        <div class="item">游走基本法</div>
+                        <div class="item">野王修炼手册</div>
+                        <div class="item">法王的荣耀</div>
+                        <div class="item ">最新</div>
+                        <div class="item">峡谷大气层</div>
+                        <div class="item">马菠萝奇闻录</div>
+                        <div class="item">狄仁杰封神榜</div>
+                        <div class="item">游走基本法</div>
+                        <div class="item">野王修炼手册</div>
+                        <div class="item">法王的荣耀</div>
+                    </div>
+                    <!-- video list -->
+                    <div class="video-list">
+                        <a href="#" class="video_item">
+                            <!-- the picture of the video -->
+                            <div class="album">
+                                <img src="./images/video_01.jpg" alt="">
+                                <div class="info">
+                                    <span class="info_count">470.3万</span>
+                                    <span class="info_date">2023-05-04</span>
+                                </div>
+                                <!-- the cover of video -->
+                                <div class="cover">
+                                    <i class="icon_play"></i>
+                                </div>
+                            </div>
+
+                            <!-- the info of the video -->
+                            <div class="desc">
+                                英雄玩法介绍——莱西奥：来看一场完美的日落海烟花秀吗？fssffdf
+                            </div>
+                        </a>
+                        <a href="#" class="video_item">
+                            <!-- the picture of the video -->
+                            <div class="album">
+                                <img src="./images/video_01.jpg" alt="">
+                                <div class="info">
+                                    <span class="info_count">470.3万</span>
+                                    <span class="info_date">2023-05-04</span>
+                                </div>
+                                <!-- the cover of video -->
+                                <div class="cover">
+                                    <i class="icon_play"></i>
+                                </div>
+                            </div>
+
+                            <!-- the info of the video -->
+                            <div class="desc">
+                                英雄玩法介绍——莱西奥：来看一场完美的日落海烟花秀吗？fssffdf
+                            </div>
+                        </a>
+                        <a href="#" class="video_item">
+                            <!-- the picture of the video -->
+                            <div class="album">
+                                <img src="./images/video_01.jpg" alt="">
+                                <div class="info">
+                                    <span class="info_count">470.3万</span>
+                                    <span class="info_date">2023-05-04</span>
+                                </div>
+                                <!-- the cover of video -->
+                                <div class="cover">
+                                    <i class="icon_play"></i>
+                                </div>
+                            </div>
+
+                            <!-- the info of the video -->
+                            <div class="desc">
+                                英雄玩法介绍——莱西奥：来看一场完美的日落海烟花秀吗？fssffdf
+                            </div>
+                        </a>
+                        <a href="#" class="video_item">
+                            <!-- the picture of the video -->
+                            <div class="album">
+                                <img src="./images/video_01.jpg" alt="">
+                                <div class="info">
+                                    <span class="info_count">470.3万</span>
+                                    <span class="info_date">2023-05-04</span>
+                                </div>
+                                <!-- the cover of video -->
+                                <div class="cover">
+                                    <i class="icon_play"></i>
+                                </div>
+                            </div>
+
+                            <!-- the info of the video -->
+                            <div class="desc">
+                                英雄玩法介绍——莱西奥：来看一场完美的日落海烟花秀吗？fssffdf
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="match-center">
+                    <!-- 赛事中心 -->
+                    <div class="section_header">
+                        <div class="header_left">
+                            <h3 class="match_title">赛事中心</h3>
+                        </div>
+                        <div class="header_right"><a href="#" class="more">更多</a></div>
+                    </div>
+                    <!-- 赛事标题切换 -->
+                    <div class="tab_control">
+                        <div class="tab_control_item active item2">KPL</div>
+                        <div class="tab_control_line"></div>
+                        <div class="tab_control_item item2">挑战者杯</div>
+                        <div class="tab_control_line"></div>
+                        <div class="tab_control_item item2">K甲级联赛</div>
+                        <div class="tab_control_line"></div>
+                        <div class="tab_control_item item2">城市赛</div>
+                        <div class="tab_control_line"></div>
+                        <div class="tab_control_item item2">高校联赛</div>
+                        <div class="tab_control_line"></div>
+                        <div class="tab_control_item item2">TGA</div>
+                        <div class="tab_control_line"></div>
+                        <div class="tab_control_item item2">微信游戏邀请赛</div>
+                    </div>
+                    <!--赛事内容切换  -->
+                    <div class="match-news">
+                        <div class="news-left">
+                            <a href="#">
+                                <img src="./images/match_01.jpg" alt="">
+                            </a>
+                        </div>
+                        <div class="news-right">
+                            <div class="title nowap_ellipsis">
+                                TY.小狼三连战边零封LTS，MD确认晋级胜者组
+                            </div>
+                            <div class="sub-title">TY.小狼三连战边零封LTS，MD确认晋级胜者组</div>
+                            <ul class="content">
+                                <li class="item">
+                                    <div class="left-item">
+                                        <i>KPL</i>
+                                        <a class="nowap_ellipsis" href="#">武汉estarpro四比二击败佛山DRG夺冠，花海终获FMVP！</a>
+                                    </div>
+                                    <div class="right-item">2023-05-04</div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="content-right"></div>
+        </div>
+    </div>
+</body>
+
+</html>

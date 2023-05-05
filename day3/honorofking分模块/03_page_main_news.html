@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>page_main_news</title>
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/common.css">
+    <style>
+        .main {
+            /* height: 100px;
+            background-color: brown; */
+        }
+        
+        .main .news-section {
+            display: flex;
+            height: 342px;
+            background: url(./images/news_bg.png) no-repeat;
+        }
+        /* 轮播图部分 */
+        
+        .main .news-section .banner {
+            width: 605px;
+            /* background-color: #000; */
+        }
+        
+        .main .news-section .banner .image-list {
+            display: flex;
+            overflow: hidden;
+        }
+        
+        .main .news-section .banner .image-list .item {
+            flex-shrink: 0;
+        }
+        
+        .main .news-section .banner .image-list .item a {
+            display: block;
+        }
+        
+        .main .news-section .banner .image-list .item a img {
+            width: 100%;
+        }
+        
+        .main .news-section .banner .title-list {
+            display: flex;
+            height: 44px;
+            line-height: 44px;
+        }
+        
+        .main .news-section .banner .title-list .item {
+            flex: 1;
+        }
+        
+        .main .news-section .banner .title-list .item a {
+            display: block;
+            text-align: center;
+            color: #b1b2be;
+            font-size: 14px;
+        }
+        
+        .main .news-section .banner .title-list .item a:hover,
+        .main .news-section .banner .title-list .item.active a {
+            color: #f3c258;
+            background: rgba(255, 255, 255, 0.15);
+        }
+        /* 新闻部分 */
+        
+        .main .news-section .news {
+            flex: 1;
+            overflow: hidden;
+            /* background-color: purple; */
+            padding: 0 17px;
+        }
+        /* 新闻头部 */
+        
+        .main .news-section .news .title-list {
+            display: flex;
+            height: 48px;
+            border-bottom: 1px solid #000;
+        }
+        /* 新闻头部的单个标题 */
+        
+        .main .news-section .news .title-list .item {
+            width: 52px;
+        }
+        /* 新闻头部单个标题 a的内容 */
+        
+        .main .news-section .news .title-list .item a {
+            height: 48px;
+            box-sizing: border-box;
+            line-height: 45px;
+            text-align: center;
+            display: block;
+            border-bottom: 3px solid transparent;
+            color: #b8b9c5;
+            transition: border-bottom 150ms linear;
+        }
+        
+        .main .news-section .news .title-list .item.active a,
+        .main .news-section .news .title-list .item:hover a {
+            color: #f3c285;
+            border-bottom: 3px solid #f3c285;
+        }
+        /* 最后的 ... */
+        
+        .main .news-section .news .title-list .item.more a {
+            color: #b8b9c5;
+            border-bottom: 3px solid transparent;
+        }
+        /* 公告部分 */
+        
+        .main .news-section .news .notice {
+            height: 36px;
+            line-height: 36px;
+            background: #414046;
+            margin-top: 18px;
+            padding: 0 15px;
+        }
+        /* 公告部分a标签部分 */
+        
+        .main .news-section .news .notice a {
+            display: block;
+            color: #f3c258;
+            font-size: 18px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        /* 新闻列表 */
+        
+        .main .news-section .news .news-list {
+            margin-top: 10px;
+        }
+        /* 新闻列表的 每一项 */
+        
+        .main .news-section .news .news-list .item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+        /* 新闻列表的 每一项  详情 */
+        
+        .main .news-section .news .news-list .item .desc {
+            flex: 1;
+            color: #b8b9c5;
+        }
+        /* 新闻列表的 每一项  日期 */
+        
+        .main .news-section .news .news-list .item .date {
+            padding: 0 8px;
+            font-size: 12px;
+            color: #999;
+        }
+        
+        .main .news-section .download {
+            width: 236px;
+            background-color: skyblue;
+        }
+        
+        .main .news-section .download a {
+            display: block;
+            background: url(./images/header_sprite.png);
+        }
+        
+        .main .news-section .download .donwload-btn {
+            height: 128px;
+            background-position: 0 -219px;
+        }
+        
+        .main .news-section .download .guard-btn {
+            height: 106px;
+            background-position: 0 -350px;
+        }
+        
+        .main .news-section .download .experience-btn {
+            height: 108px;
+            background-position: 0 -461px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main main_wrap">
+        <div class="news-section">
+            <div class="banner">
+                <ul class="image-list">
+                    <li class="item">
+                        <a href="#">
+                            <img src="./images/banner01.jpeg" alt="">
+                        </a>
+                    </li>
+                    <li class="item">
+                        <a href="#">
+                            <img src="./images/banner01.jpeg" alt="">
+                        </a>
+                    </li>
+                </ul>
+                <ul class="title-list">
+                    <li class="item active">
+                        <a href="#">刘关张语音爆料</a>
+                    </li>
+                    <li class="item ">
+                        <a href=" # ">刘关张语音爆料</a>
+                    </li>
+                    <li class="item ">
+                        <a href="# ">刘关张语音爆料</a>
+                    </li>
+                    <li class="item ">
+                        <a href="# ">刘关张语音爆料</a>
+                    </li>
+                    <li class="item ">
+                        <a href="# ">刘关张语音爆料</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="news ">
+                <ul class="title-list">
+                    <li class="item active">
+                        <a href="#">热门</a>
+                    </li>
+                    <li class="item">
+                        <a href="#">新闻</a>
+                    </li>
+                    <li class="item">
+                        <a href="#">公告</a>
+                    </li>
+                    <li class="item">
+                        <a href="#">活动</a>
+                    </li>
+                    <li class="item">
+                        <a href="#">赛事</a>
+                    </li>
+                    <li class="item more">
+                        <a href="#">...</a>
+                    </li>
+                </ul>
+                <p class="notice">
+                    <a href="#">
+                        星梦设计大赛特别创意奖公布
+                    </a>
+                </p>
+                <!-- 新闻列表 -->
+                <ul class="news-list">
+                    <li class="item">
+                        <i class="news_type news_type_hot"></i>
+                        <a class="desc nowap_ellipsis " href="#">秘！来自李元芳的王者荣耀英雄盛会现场报道</a>
+                        <span class="date">04/17</span>
+                    </li>
+                    <li class="item">
+                        <i class="news_type news_type_info"></i>
+                        <a class="desc nowap_ellipsis " href="#">秘！来自李元芳的王者荣耀英雄盛会现场报道</a>
+                        <span class="date">04/17</span>
+                    </li>
+                    <li class="item">
+                        <a class="desc nowap_ellipsis " href="#">秘！来自李元芳的王者荣耀英雄盛会现场报道</a>
+                        <span class="date">04/17</span>
+                    </li>
+                    <li class="item">
+                        <a class="desc nowap_ellipsis " href="#">秘！来自李元芳的王者荣耀英雄盛会现场报道</a>
+                        <span class="date">04/17</span>
+                    </li>
+                    <li class="item">
+                        <a class="desc nowap_ellipsis " href="#">秘！来自李元芳的王者荣耀英雄盛会现场报道</a>
+                        <span class="date">04/17</span>
+                    </li>
+                    <li class="item">
+                        <a class="desc nowap_ellipsis " href="#">秘！来自李元芳的王者荣耀英雄盛会现场报道</a>
+                        <span class="date">04/17</span>
+                    </li>
+                    <li class="item">
+                        <a class="desc nowap_ellipsis " href="#">秘！来自李元芳的王者荣耀英雄盛会现场报道</a>
+                        <span class="date">04/17</span>
+                    </li>
+                </ul>
+            </div>
+            <div class="download ">
+                <a class="donwload-btn " href="# "></a>
+                <a class="guard-btn " href="# "></a>
+                <a class="experience-btn " href="# "></a>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

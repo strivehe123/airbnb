@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>王者荣耀头部</title>
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/common.css">
+    <style>
+        .header {
+            background-color: rgba(0, 0, 0, .8);
+        }
+        
+        .header .area {
+            display: flex;
+            justify-content: space-between;
+            height: 84px;
+            /* line-height: 84px; */
+            /* background-color: orange; */
+        }
+        
+        .header .left {
+            display: flex;
+        }
+        
+        .header .left .logo a {
+            position: relative;
+            top: 50%;
+            transform: translate(0, -50%);
+            display: block;
+            width: 200px;
+            height: 54px;
+            /* background-color: aliceblue; */
+            background: url(./images/head_logo.png) no-repeat center center;
+        }
+        
+        .header .left .nav-list {
+            display: flex;
+            margin-left: 25px;
+        }
+        
+        .header .left .nav-list .item {
+            width: 110px;
+        }
+        
+        .header .left .nav-list .item:hover,
+        .header .left .nav-list .item.active {
+            background: url(./images/header_sprite.png) no-repeat 0 0;
+        }
+        
+        .header .left .nav-list .item:hover a,
+        .header .left .nav-list .item.active a {
+            color: #e4b653;
+        }
+        
+        .header .left .nav-list .item:hover .desc,
+        .header .left .nav-list .item.active .desc {
+            color: #91763f;
+        }
+        
+        .header .left .nav-list .item a {
+            display: block;
+            box-sizing: border-box;
+            padding-top: 20px;
+            height: 100%;
+            font: 18px/1.2;
+            color: #c9c9dd;
+            text-align: center;
+        }
+        
+        .header .left .nav-list .item a .desc {
+            margin-top: 8px;
+            display: block;
+            font-size: 12px;
+            color: #858792;
+        }
+        
+        .header .right {
+            height: 84px;
+            display: flex;
+        }
+        
+        .header .right .img a {
+            position: relative;
+            display: block;
+            width: 27px;
+            top: 50%;
+            transform: translate(0, -50%);
+        }
+        
+        .header .right .info {
+            font-size: 5px;
+            color: #c9c9dd;
+        }
+        
+        .header .right .info a {
+            color: #c9c9dd;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <div class="area header_wrap">
+            <div class="left">
+                <h1 class="logo">
+                    <a href="#">
+
+                    </a>
+                </h1>
+                <ul class="nav-list">
+                    <li class="item active">
+                        <a href="#">
+                          游戏资料
+                          <span class="desc">DATA</span>
+                        </a>
+                    </li>
+                    <li class="item">
+                        <a href="#">
+                        内容中心
+                        <span class="desc">CONTENTS</span>
+                      </a>
+                    </li>
+                    <li class="item">
+                        <a href="#">
+                        赛事中心
+                        <span class="desc">MATCH</span>
+                      </a>
+                    </li>
+                    <li class="item">
+                        <a href="#">
+                      百态王者
+                      <span class="desc">CULTURE</span>
+                    </a>
+                    </li>
+                    <li class="item">
+                        <a href="#">
+                    社区互动
+                    <span class="desc">COMMUTY</span>
+                  </a>
+                    </li>
+                    <li class="item">
+                        <a href="#">
+                  玩家支持
+                  <span class="desc">PLAYER</span>
+                </a>
+                    </li>
+                    <li class="item">
+                        <a href="#">
+                IP新游
+                <span class="desc">NEW GAMES</span>
+              </a>
+                    </li>
+                </ul>
+
+            </div>
+            <div class="right">
+                <div class="img">
+                    <a href="#">
+                        <img src="./images/header_logo2.png" alt="">
+                    </a>
+                </div>
+                <!-- <div class="info">
+                    <a href="#">欢迎登录</a>
+                    <div>登录后查看战绩</div>
+                </div> -->
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

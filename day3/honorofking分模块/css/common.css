@@ -1,0 +1,154 @@
+.top_wrap {
+    width: 980px;
+    margin: 0 auto;
+}
+
+.header_wrap {
+    width: 980px;
+    margin: 0 auto;
+}
+
+.main_wrap {
+    width: 1200px;
+    margin: 0 auto;
+}
+
+img {
+    vertical-align: top;
+}
+
+
+/* 文字不换行 */
+
+.nowap_ellipsis {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+
+/*图标*/
+
+.news_type::before {
+    display: inline-block;
+    width: 32px;
+    height: 16px;
+    margin-right: 5px;
+    text-align: center;
+    line-height: 16px;
+    font-size: 12px;
+    border-radius: 2px;
+}
+
+
+/* 图标种类 */
+
+.news_type_hot::before {
+    content: "热门";
+    border: 1px solid #ff3636;
+    color: #ff3636;
+}
+
+.news_type_info::before {
+    content: "新闻";
+    border: 1px solid #f4be19;
+    color: #f4be19;
+}
+
+
+/* section header */
+
+.section_header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.section_header .header_left .title {
+    font-size: 22px;
+    color: #323235;
+    padding-left: 30px;
+    background: url(../images/header_sprite.png) no-repeat 0 -102px;
+}
+
+.section_header .header_left .match_title {
+    font-size: 22px;
+    color: #323235;
+    padding-left: 30px;
+    background: url(../images/header_sprite.png) no-repeat 0 -180px;
+}
+
+.section_header .header_right .more {
+    display: block;
+    padding-left: 22px;
+    background: url(../images/header_sprite.png) no-repeat -252px 4px;
+}
+
+.section_header .header_right .more:hover {
+    color: #f3c258;
+}
+
+
+/* tab_control */
+
+.tab_control {
+    display: flex;
+    align-items: center;
+    height: 32px;
+    line-height: 29px;
+    background-color: #f5f5f5;
+}
+
+.tab_control_item {
+    flex: 1;
+    text-align: center;
+    color: #999;
+    border-bottom: 3px solid transparent;
+    cursor: pointer;
+}
+
+.item2 {
+    flex: 0 auto;
+    padding: 0 20px;
+}
+
+.tab_control_item:hover,
+.tab_control_item.active {
+    color: #333;
+    border-bottom: 3px solid #f3c258;
+}
+
+.tab_control .tab_control_line {
+    width: 1px;
+    height: 20px;
+    background-color: #e1e1e1;
+}
+
+
+/* tab_keyword */
+
+.tab_keyword {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.tab_keyword>.item {
+    height: 24px;
+    line-height: 24px;
+    margin: 0 8px 10px;
+    padding: 0 12px;
+    border: 1px solid #e5e5e5;
+    border-radius: 10px;
+    background-color: #f5f5f5;
+    color: #333;
+    cursor: pointer;
+}
+
+.tab_keyword .item:hover,
+.tab_keyword .item.active {
+    color: #fff;
+    background-color: #f3c258;
+    border: 1px solid #f3c258;
+}

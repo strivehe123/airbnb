@@ -1,0 +1,33 @@
+/* reset csss */
+
+body {
+    font: 14px/1.5 "Microsoft YaHei", Tahoma, "simsun", sans-serif;
+    color: #333;
+}
+
+body,
+ul,
+ol,
+li,
+h1,
+h2,
+h3 {
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+    color: #333;
+}
+
+ul,
+ol,
+li {
+    list-style: none;
+}
+
+i,
+em {
+    font-style: normal;
+}

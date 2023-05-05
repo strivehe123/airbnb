@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .wrap {
+            width: 1190px;
+            margin: 80px auto;
+            background-color: #f5f5f5;
+        }
+        
+        .wrap .content {
+            margin-right: -10px;
+        }
+        
+        .wrap .item {
+            float: left;
+            width: 230px;
+            height: 322px;
+            background-color: antiquewhite;
+            margin-right: 10px;
+        }
+        /* 解决思路1 */
+        /* .wrap .item:nth-child(5n) {
+            margin-right: 0;
+        } */
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <div class="content">
+            <div class="item item1">1</div>
+            <div class="item item2">2</div>
+            <div class="item item3">3</div>
+            <div class="item item4">4</div>
+            <div class="item item5">5</div>
+        </div>
+    </div>
+</body>
+
+</html>

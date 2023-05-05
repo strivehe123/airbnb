@@ -1,0 +1,11 @@
+.box {
+  width: 200px;
+  height: 200px;
+  background-color: orange;
+}
+.box .item {
+  width: 100px;
+  height: 100px;
+  background-color: aliceblue;
+}
+/*# sourceMappingURL=./common.css.map */

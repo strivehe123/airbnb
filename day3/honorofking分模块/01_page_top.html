@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/common.css">
+    <style>
+        .top {
+            border: 1px solid #f5f5f5;
+        }
+        
+        .top-area {
+            display: flex;
+            justify-content: space-between;
+            height: 41px;
+        }
+        
+        .top-area .left-area {
+            display: flex;
+        }
+        
+        .top-area .left-area .logo a {
+            display: block;
+            width: 150px;
+            height: 41px;
+            text-indent: -999px;
+            background: url(./images/top_logo.png) no-repeat top center;
+        }
+        
+        .top-area .left-area .recommond img {
+            height: 41px;
+        }
+        
+        .top-area .right-area {
+            display: flex;
+        }
+        
+        .top-area .right-area .item a {
+            display: block;
+            position: relative;
+            line-height: 41px;
+            font-size: 14px;
+            color: #464646;
+        }
+        
+        .top-area .right-area .item a.growth {
+            padding-left: 30px;
+        }
+        
+        .top-area .right-area .icon-grow {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            margin: auto 0;
+            width: 30px;
+            height: 30px;
+            background: url(./images/top_sprite.png) no-repeat -30px 0;
+        }
+        
+        .top-area .right-area .item a.ranking {
+            margin-left: 14px;
+            padding-right: 30px;
+        }
+        
+        .top-area .right-area .item a.ranking::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            right: 0;
+            margin: auto 0;
+            /* position: relative;
+            top: 50%;
+            transform: translate(0, -50%); */
+            width: 30px;
+            height: 30px;
+            background: url(./images/top_sprite.png) no-repeat 0 0;
+            opacity: .2;
+            transform: rotate(90deg);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="top">
+        <div class="top_wrap top-area">
+            <div class="left-area">
+                <div class="logo">
+                    <a href="#">腾讯游戏</a>
+                </div>
+                <div class="recommond">
+                    <img src="./images/recommond_game.jpg" alt="">
+                </div>
+            </div>
+            <ul class="right-area">
+
+                <li class="item">
+
+                    <a class="growth" href="#">
+                        <i class="icon-grow"></i> 成长守护平台
+                    </a>
+                </li>
+                <li class="item">
+                    <a class="ranking" href="#">腾讯游戏排名</a>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+</body>
+
+</html>
