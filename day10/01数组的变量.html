@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var foo = ['fff', 'gg', 'tt', 'abc', 'aaa', 'bbb', '11', '22'];
+        // 数组的遍历 1
+        for (var i = 0; i < foo.length; i++) {
+            console.log(foo[i]);
+        }
+        // 数组的遍历 2
+        for (var index in foo) {
+            console.log(index, foo[index]);
+            // console.log(foo[index]);
+        }
+        // 数组的遍历 3
+        for (var value of foo) {
+            console.log(value);
+        }
+    </script>
+</body>
+
+</html>

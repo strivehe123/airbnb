@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 构造函数  帮助我们构造 创建对象的函数
+        // 如果一个函数被new 操作符调用
+        // 1 在内存中创建一个{} 空对象
+        // 2 this 指向这个空对象
+        // 3 执行函数体的代码块
+        // 4 如果没有明确地返回一个非空对象 this 会返回
+        function Student(name, age, address) {
+            this.name = name;
+            this.age = age;
+            this.address = address;
+            this.eat = function() {
+                console.log('eating.');
+            }
+        }
+        var st1 = new Student('sakula', 11, 'deg');
+        console.log(st1);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var a = 123;
+        var b = "123";
+        // == 会将两边转成 Number类型的值进行比较   (隐式转换)
+        // null 比较特殊 会将 两边的元素类型进行比较
+        console.log(a == b);
+        console.log(null == "");
+        // === 在类型不相同的情况下  直接返回false
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,17 @@
+.download {
+  height: 16vw;
+  display: flex;
+}
+.download .left {
+  flex: 1;
+  background-color: orange;
+}
+.download .right {
+  width: 25.2vw;
+  line-height: 16vw;
+  text-align: center;
+  color: #fff;
+  font-size: 1.6vw;
+  background-image: linear-gradient(to right, #ff0409, #ff2162);
+}
+/*# sourceMappingURL=./home_download.css.map */

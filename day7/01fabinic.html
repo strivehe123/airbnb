@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 1 2 3 4 5 6 7 8
+        // 1 1 2 3 5 8 13 21
+        function fabnic(n) {
+            if (n <= 2) {
+                return 1
+            } else {
+                return fabnic(n - 1) + fabnic(n - 2)
+            }
+        }
+        var res = fabnic(8);
+        console.log(res);
+    </script>
+</body>
+
+</html>

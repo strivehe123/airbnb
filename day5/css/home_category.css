@@ -1,0 +1,28 @@
+.category {
+  display: flex;
+  margin: 3.2vw 0;
+  padding: 0 3.2vw;
+}
+.category .item {
+  flex: 1;
+  text-align: center;
+}
+.category .item .title {
+  font-size: 2.1333vw;
+  color: #666;
+}
+.category .item .sub-title {
+  height: 4.26vw;
+  padding: 0 1.2vw;
+  border-radius: 2.4vw;
+  font-size: 1.6vw;
+  color: #999;
+}
+.category .item.active .title {
+  color: #f7261d;
+}
+.category .item.active .sub-title {
+  background-color: #f7261d;
+  color: #fff;
+}
+/*# sourceMappingURL=./home_category.css.map */

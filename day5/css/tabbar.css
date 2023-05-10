@@ -1,0 +1,17 @@
+.tabbar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: calc(env(safe-area-inset-bottom) + 50px);
+  border-top: 1px solid #ddd;
+  display: flex;
+}
+.tabbar .item {
+  flex: 1;
+  text-align: center;
+}
+.tabbar .item img {
+  width: 48px;
+}
+/*# sourceMappingURL=./tabbar.css.map */

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var foo = ['fff', 'gg', 'tt', 'abc', 'aaa', 'bbb', '11', '22'];
+        // 数组的截取 开始位置 结束位置  [)  不会修改原来的数组
+        var bar = foo.slice(1, 2);
+        console.log(bar);
+        // 数组拼接 1
+        var foo1 = ['fff', 'gg', 'tt', 'abc', 'aaa', 'bbb', '11', '22'];
+        var foo2 = foo.concat(foo1, foo1);
+        // 数组的拼接2
+        var foo3 = [...foo1, ...foo2];
+        console.log(foo2);
+        console.log(foo3);
+        // 数组的join方法
+        var str1 = foo2.join('-');
+        console.log(str1);
+    </script>
+</body>
+
+</html>

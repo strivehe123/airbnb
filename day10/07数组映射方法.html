@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //Array  map
+        var arr1 = [1, 2, 3, 4, 5, 6];
+        var arr2 = arr1.map(item => item * item);
+        console.log(arr2);
+        // Array reduce
+        var stus = [{
+            age: 11,
+            name: 'sakula',
+            id: 1
+        }, {
+            age: 1,
+            name: 'sakula',
+            id: 2
+        }, {
+            age: 20,
+            name: 'sakula',
+            id: 4
+        }, {
+            age: 8,
+            name: 'sakula',
+            id: 3
+        }, ];
+        var ages = stus.reduce((prev, item) => prev + item.age, 0);
+        console.log(ages);
+        // filter map reduce 综合练习
+        var count = arr1.filter(item => item % 2 === 0).map(item => item ** 2).reduce((prev, item) => item + prev, 0);
+        console.log(count);
+    </script>
+</body>
+
+</html>

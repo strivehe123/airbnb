@@ -1,0 +1,80 @@
+.subsidy {
+  width: 93.6vw;
+  height: 44vw;
+  box-sizing: border-box;
+  margin: 3.2vw auto 0;
+  padding: 0 2.6667vw;
+  border-radius: 3.2vw;
+  background-color: #fff;
+}
+.subsidy .header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 10.6667vw;
+}
+.subsidy .header .left {
+  display: flex;
+  align-items: flex-end;
+}
+.subsidy .header .left img {
+  width: 16.8vw;
+}
+.subsidy .header .left .time {
+  display: flex;
+  align-items: center;
+  font-size: 1.6vw;
+}
+.subsidy .header .left .time .item {
+  width: 5.3333vw;
+  height: 4.2667vw;
+  margin-left: 0.8vw;
+  background-color: #f7261d;
+  color: #fff;
+  text-align: center;
+  line-height: 4.2667vw;
+}
+.subsidy .header .left .time .split {
+  margin: 0 0.8vw;
+  color: #f7261d;
+}
+.subsidy .header .right {
+  position: relative;
+  padding-right: 2.1333vw;
+  font-size: 1.6vw;
+  color: #f7261d;
+}
+.subsidy .header .right::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin: auto 0;
+  width: 1.2vw;
+  height: 1.2vw;
+  border: 0.2667vw solid #f7261d;
+  border-top-color: transparent;
+  border-left-color: transparent;
+  transform: rotate(-45deg);
+}
+.subsidy .list {
+  display: flex;
+}
+.subsidy .list .item {
+  flex: 1;
+  text-align: center;
+}
+.subsidy .list .item img {
+  width: 20.9333vw;
+}
+.subsidy .list .item .info .new {
+  color: #f7261d;
+  font-size: 1.8667vw;
+  font-weight: 700;
+}
+.subsidy .list .item .info .old {
+  color: #999;
+  font-size: 1.6vw;
+  text-decoration: line-through;
+}
+/*# sourceMappingURL=./home_subsidy.css.map */

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        // 可以在函数声明之前调用函数
+        bar();
+        // 函数声明
+        function bar() {
+            console.log('this is bar function');
+        }
+        foo();
+        // 函数表达式
+        var foo = function() {
+            console.log('this is foo function');
+        }
+    </script>
+</body>
+
+</html>

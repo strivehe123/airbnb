@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table {
+            border-collapse: collapse;
+        }
+        
+        th {
+            background-color: #f5f5f5;
+            /* color: #aaa; */
+        }
+        
+        th,
+        td {
+            border: 1px solid #aaa;
+            padding: 8px 12px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>编号</th>
+                <th>书籍名称</th>
+                <th>出版日期</th>
+                <th>价格</th>
+                <th>数量</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+    <h2>总价格:¥<span class="total-count">0</span></h2>
+    <script>
+        // 从后台获取的数据
+        var book_list = [{
+            id: 1,
+            name: '算法导论',
+            pub_date: '2006-09',
+            price: 85,
+            count: 3
+        }, {
+            id: 2,
+            name: 'UNIX编程',
+            pub_date: '2006-02',
+            price: 59,
+            count: 2
+        }, {
+            id: 3,
+            name: 'python的艺术',
+            pub_date: '2008-04',
+            price: 39,
+            count: 5
+        }, {
+            id: 4,
+            name: 'javascript高级编程',
+            pub_date: '2012-11',
+            price: 88,
+            count: 6
+        }];
+        var tbody = document.querySelector('tbody'); //tbody
+        // 遍历book_list  填充 tbody
+        for (var i = 0; i < book_list.length; i++) {
+            var tr = document.createElement('tr');
+
+            var keys = Object.keys(book_list[i]);
+            for (var key of keys) {
+                var td = document.createElement('td');
+
+                if (key === 'price') {
+                    td.textContent = `¥${book_list[i][key]}`;
+                } else {
+                    td.textContent = book_list[i][key];
+                }
+
+                tr.append(td);
+            }
+            var btn = document.createElement('button');
+            btn.textContent = '删除';
+            var td = document.createElement('td');
+            td.append(btn);
+            tr.append(td);
+            tbody.append(tr);
+        }
+        // 删除数据
+        tbody.addEventListener('click', handleDelete);
+
+        function handleDelete(event) {
+            if (event.target.tagName !== 'BUTTON') return
+            var td = event.target.parentElement.parentElement;
+            var td_index = td.sectionRowIndex;
+            // td删除
+            // book_list 数据删除
+            td.remove();
+            book_list.splice(td_index, 1);
+            calTotalPrice()
+        }
+        // 计算总价格
+        function calTotalPrice() {
+            var total_span = document.querySelector('.total-count');
+            // 遍历book_list 计算价格
+            var total_price = book_list.reduce((prev, item) => prev + item.count * item.price, 0);
+            total_span.textContent = total_price;
+        }
+        calTotalPrice();
+    </script>
+</body>
+
+</html>

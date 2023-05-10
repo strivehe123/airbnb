@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // RFC  ISO-8601
+        var date1 = new Date();
+        var date1_iso = date1.toISOString();
+        console.log(date1, '---', date1_iso);
+        //full year
+        var year = date1.getFullYear();
+        console.log(`date1-fullYear:${year}`);
+        // month from 0
+        var month = date1.getMonth();
+        console.log(`date1-Month: ${month+1}`);
+        // day
+        var day = date1.getDate();
+        console.log(`date1-day: ${day}`);
+        // 
+        var hour = date1.getHours();
+        //
+        var min = date1.getMinutes();
+        //
+        var second = date1.getSeconds();
+        //
+        var week_day = date1.getDay();
+        //
+        console.log('week_day: ', week_day);
+        // 获取当前时间的时间戳
+        console.log(Date.now());
+        // 获取指定时间的时间戳
+        console.log(date1.getTime());
+        console.log(date1.valueOf());
+        // 将 字符串时间转换为时间戳
+        var data_str = '2022-2-2';
+        var data_str_timestamp = Date.parse(data_str);
+        console.log(data_str_timestamp);
+    </script>
+</body>
+
+</html>

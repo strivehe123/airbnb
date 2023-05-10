@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+        
+        .box {
+            width: 100px;
+            height: 100px;
+            padding: 20px;
+            border: 10px solid red;
+            background-color: #f80;
+            overflow: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        值得一提的是，其实这段视频并非黄老师原创，首发是一名杭州幼师“桃子老师”。当桃子老师的视频小火了以后，众多网友开始纷纷模仿，而黄老师就是其中之一，并且她还“后浪推前浪”赢得了更加广泛的关注。 黄老师的视频甚至还被大官媒新华网转载，配文道：“幼儿园老师用温暖的歌曲，带给花朵们温馨的童年”。 不过黄老师红得快凉得也快，新华网不久后就删除了相关报道。虽然不知道具体原因，但靠模仿不尊重原创肯定是其中一个重要因素
+    </div>
+    <script>
+        var boxEle = document.querySelector('.box');
+        // 局限性比较强
+        // var boxStyle = getComputedStyle(boxEle);
+        // console.log(boxStyle);
+        var boxClientWidth = boxEle.clientWidth; // content width + padding left padding right
+        var boxOffsetWidth = boxEle.offsetWidth; // element width   all
+        console.log('clientWidth: ', boxClientWidth);
+        console.log('offsetWidth: ', boxOffsetWidth);
+        var boxClientTop = boxEle.clientTop; // clientTop border top
+        console.log('clientTop: ', boxClientTop);
+        var boxOffsetTop = boxEle.offsetTop; // offsetTop to father element top
+        console.log('offsetTop: ', boxOffsetTop);
+        var boxScrollHeight = boxEle.scrollHeight; // element all height   include scroll part
+        console.log('scrollHeight: ', boxScrollHeight);
+        var boxScrollTop = boxEle.scrollTop; //the part scroll height
+        console.log('scsrollTop:', boxScrollTop);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,33 @@
+// 分类
+@import url(./variables.less);
+.category{
+  display: flex;
+ 
+  margin: 3.2vw 0;
+  padding: 0 3.2vw;
+  .item{
+    flex: 1;
+    text-align: center;
+    
+    .title{
+      font-size: @bigFontSize;
+      color: #666;
+    }
+    .sub-title{
+      height: 4.26vw;
+      padding: 0 1.2vw;
+      border-radius: 2.4vw;
+      font-size: @smallFontSize;
+      color: #999;
+    }
+    &.active{
+      .title{
+        color: @mainColor;
+      }
+      .sub-title{
+        background-color: @mainColor;
+        color:#fff;
+      }
+    }
+  }
+}

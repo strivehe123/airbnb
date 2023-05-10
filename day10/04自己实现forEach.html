@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var foo = ['abc', 'aaa', 'bbb', 'ccc'];
+
+        function myForeach(fn) {
+            for (var i = 0; i < foo.length; i++) {
+                fn(i, foo[i], foo);
+            }
+        }
+
+        function fn(i, item, array) {
+            console.log('---', i, item, array);
+        }
+        myForeach(fn);
+    </script>
+</body>
+
+</html>

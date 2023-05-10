@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        // 判断字符串中是否包含另一个字符串
+        var message = 'my name is sakula';
+        var name = 'sa';
+        console.log(message.indexOf(name));
+        console.log(message.includes(name));
+        // 以什么开始
+        console.log(message.startsWith('my'));
+        console.log(message.startsWith('sa'));
+        // 替换
+        var new_message = message.replace('sakula', '牛偶');
+        console.log(new_message);
+        // 以什么结束
+        console.log(message.endsWith('sakula'));
+        // 字符串截取
+        var new_message_2 = message.slice(0, 3);
+        console.log(new_message_2);
+        // 字符串截取2
+        var new_message_3 = message.substr(0, 5);
+        console.log(new_message_3);
+        // 字符串截取3
+        var new_message_4 = message.substring(0, 3);
+        console.log(new_message_4);
+    </script>
+</body>
+
+</html>

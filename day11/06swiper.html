@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        ul,
+        li {
+            list-style: none;
+        }
+        
+        body,
+        ul,
+        li {
+            margin: 0;
+            padding: 0;
+        }
+        
+        .banner {
+            width: 604px;
+            height: 342px;
+            margin: 20px auto;
+            background-color: #000;
+            overflow: hidden;
+        }
+        
+        img {
+            vertical-align: top;
+        }
+        
+        .banner .item-list {
+            display: flex;
+        }
+        
+        .banner .item-list .item {
+            width: 604px;
+        }
+        
+        .banner .title-list {
+            display: flex;
+        }
+        
+        .banner .title-list .title {
+            height: 44px;
+            line-height: 44px;
+            align-items: center;
+            flex: 1;
+            color: #b1b2be;
+            text-align: center;
+            cursor: pointer;
+        }
+        
+        .banner .title-list .title.active {
+            background: rgba(255, 255, 255, 0.15);
+            color: #f3c258;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="banner">
+        <!-- 轮播图部分 -->
+        <ul class="item-list">
+            <li class="item">
+
+                <img src="./img/img1.jpeg" alt="">
+
+            </li>
+            <li class="item">
+
+                <img src="./img/img2.jpeg" alt="">
+
+            </li>
+            <li class="item">
+
+                <img src="./img/img3.jpeg" alt="">
+
+            </li>
+            <li class="item">
+
+                <img src="./img/img4.jpeg" alt="">
+
+            </li>
+            <li class="item">
+
+                <img src="./img/img5.jpeg" alt="">
+
+            </li>
+        </ul>
+        <!-- 切换列表 -->
+        <div class="title-list">
+            <div class="title active">刘关张皮肤CG</div>
+            <div class="title">皮肤主题曲发布</div>
+            <div class="title">英雄盛会现场</div>
+            <div class="title">九尾狐新皮肤</div>
+            <div class="title">刘关张语音爆料</div>
+        </div>
+    </div>
+    <script>
+        // mouseover 切换
+        var titleDiv = document.querySelector('.title-list');
+        var activeDiv = document.querySelector('.active');
+        var ul = document.querySelector('.item-list');
+        titleDiv.addEventListener('mouseover', mouseHandle);
+
+        function mouseHandle(event) {
+            if (!event.target.classList.contains('title')) return;
+            event.target.classList.add('active');
+            activeDiv.classList.remove('active');
+            activeDiv = event.target;
+            var index = Array.from(titleDiv.children).findIndex(item => item == event.target);
+            // 移动整个ul
+            ul.style.transform = `translateX(${-604 * index}px)`;
+            ul.style.transition = `transform 600ms ease-in`;
+
+        }
+        // 自动轮播
+        var currentIndex = 0;
+        // 目前的显示图片的索引
+
+        function autoChangeHandle() {
+            // 当前的索引++
+            currentIndex++;
+            // 如果当前索引等于图片的个数长度  把当前索引置为0
+            if (currentIndex === ul.children.length) currentIndex = 0;
+            //设置当前的ul的显示位置 
+            ul.style.transform = `translateX(${-604 * currentIndex}px)`;
+            // 设置ul的过渡动画
+            ul.style.transition = `transform 600ms ease-in`;
+            // 设置下面标题栏的激活切换
+            var currentTitle = titleDiv.children[currentIndex];
+            currentTitle.classList.add('active');
+            // 移除原来的激活
+            activeDiv.classList.remove('active');
+            // 激活item指向现在索引的标题栏
+            activeDiv = currentTitle;
+        }
+        setInterval(autoChangeHandle, 3000);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var now = new Date();
+        var year = now.getFullYear();
+        var month = now.getMonth() + 1;
+        var day = now.getDate();
+        var hour = now.getHours();
+        var min = now.getMinutes();
+        var sec = now.getSeconds();
+        var now_str = `${year}-${month}-${String(day).padStart(2,0)} ${String(hour).padStart(2,0)}:${String(min).padStart(2,0)}:${String(sec).padStart(2,0)}`;
+        console.log(now_str);
+    </script>
+</body>
+
+</html>

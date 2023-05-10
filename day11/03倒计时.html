@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 200px;
+            font-size: 20px;
+            margin: 50px auto;
+        }
+        
+        .box .time {
+            background-color: #f00;
+            color: #fff;
+            display: inline-block;
+            padding: 5px;
+            border-radius: 3px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <span class="time hour">03</span>
+        <span class="split">:</span>
+        <span class="time min">03</span>
+        <span class="split">:</span>
+        <span class="time sec">03</span>
+    </div>
+    <script>
+        // var end = new Date();
+        // end.setHours(24);
+        // end.setMinutes(0);
+        // end.setMinutes(0);
+        // end.setSeconds(0);
+        // end.setMilliseconds(0);
+        var end = new Date('2023-05-09 15:00:00')
+
+        function getDd() {
+            var now_timestamp = new Date().getTime();
+            var end_timestamp = end.getTime();
+            var interval_second = Math.floor((end_timestamp - now_timestamp) / 1000);
+            var interval_hour = Math.floor(interval_second / (60 * 60)); //剩余的小时数
+            var interval_min = Math.floor(interval_second / 60) % 60; //剩余的分钟
+            var interval_sec = Math.floor(interval_second % 60); //剩余的秒数
+            hour_span = document.querySelector(".hour");
+            min_span = document.querySelector(".min");
+            sec_span = document.querySelector(".sec");
+            // console.log(interval_hour, interval_min, interval_sec);
+            hour_span.textContent = String(interval_hour).padStart(2, 0);
+            min_span.textContent = String(interval_min).padStart(2, 0);
+            sec_span.textContent = String(interval_sec).padStart(2, 0);
+
+        }
+
+        setInterval(getDd, 1000);
+    </script>
+</body>
+
+</html>

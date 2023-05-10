@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var stus = [{
+            age: 11,
+            name: 'sakula',
+            id: 1
+        }, {
+            age: 11,
+            name: 'sakula',
+            id: 2
+        }, {
+            age: 11,
+            name: 'sakula',
+            id: 4
+        }, {
+            age: 11,
+            name: 'sakula',
+            id: 3
+        }, ];
+        Array.prototype.myFind = function(fn) {
+            var item = undefined;
+            for (var i = 0; i < this.length; i++) {
+                var flag = fn(this[i], i, this);
+                if (flag) {
+                    item = this[i];
+                    break;
+                }
+            }
+            return item
+        }
+        var new_stu = stus.myFind((item) => item.id === 2);
+        console.log(new_stu);
+        // findIndex  includes lastIndexOf indexOf
+        var new_stu_index = stus.findIndex(item => item.id === 2);
+        console.log(new_stu_index);
+    </script>
+</body>
+
+</html>

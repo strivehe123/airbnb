@@ -1,0 +1,27 @@
+.product {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.product .item {
+  width: 46.66vw;
+  box-sizing: border-box;
+  background-color: orange;
+  margin-top: 1.6vw;
+  border-radius: 1.3333vw;
+  overflow: hidden;
+}
+.product .item .album img {
+  width: 46.66vw;
+}
+.product .item .album .info {
+  padding: 2.6667vw;
+}
+.product .item .album .info .company {
+  text-indent: 4.2667vw;
+  background: url(../img/company_01.JPG) no-repeat left center / 4vw 4vw;
+}
+.product .item:nth-child(2n) {
+  margin-left: 1.6vw;
+}
+/*# sourceMappingURL=./home_product.css.map */

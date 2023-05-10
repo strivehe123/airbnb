@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function request(url, callback) {
+            console.log(`访问${url}获取数据...`);
+            console.log('经过了2s等待时间');
+            var datalist = ['java', 'javascript', 'python'];
+            callback(datalist);
+        }
+
+        function handle_request(res) {
+            console.log(`回调函数获取的数据:${res}`);
+        }
+        request('https://www.baidu.com', handle_request);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var arr1 = ['abc', 'aaa', 'bbb'];
+        // 尾部添加元素
+        arr1.push('11', '22', '33');
+        // console.log(arr1);
+        // 头部添加元素
+        arr1.unshift('ee', 'fff', 'gg', 'tt');
+        // 头部删除元素
+        arr1.shift();
+        // 尾部删除元素
+        arr1.pop();
+        console.log(arr1);
+        // 数组的中间操作
+        arr1.splice(1, 2, 'fuck', 'sdfsdfsfs', 'fsdfsfsfsf');
+        console.log(arr1);
+    </script>
+</body>
+
+</html>
