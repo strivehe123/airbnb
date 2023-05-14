@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var obj1 = {};
+        var obj2 = new Object();
+        // 只有function 才有  prototype
+        console.log(obj1.__proto__ === Object.prototype);
+        console.log(obj2.__proto__ === Object.prototype);
+        console.log(Object.getPrototypeOf(obj1) === Object.prototype);
+        console.log(Object.__proto__)
+        console.log(obj1.__proto__.__proto__)
+    </script>
+</body>
+
+</html>

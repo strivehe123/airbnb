@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function Foo(name, age, no) {
+            this.name = name;
+            this.age = age;
+            this.no = no;
+            this.running = function() {
+                console.log('running');
+            }
+        }
+        Foo.prototype.studying = function() {
+                console.log(`${this.name} is studying`);
+            }
+            // 对象的隐士原型 f1.__proto__ === Foo.prototype
+        var f1 = new Foo('sakula', 11, 1);
+        var f2 = new Foo('yasaka', 22, 2);
+        var f3 = new Foo('why', 33, 3);
+        console.log(f1.running === f2.running)
+        console.log(f1.studying === f2.studying)
+        f1.studying();
+        f2.studying();
+    </script>
+</body>
+
+</html>

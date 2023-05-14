@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var name = 'window';
+        var persion = {
+            name: 'persion',
+            sayName: function() {
+                console.log(this.name);
+            }
+        };
+
+        function sayName() {
+            var bar = persion.sayName;
+            bar(); //默认绑定  window
+            persion.sayName(); //隐士绑定  persion
+            (persion.sayName)(); //隐士绑定  persion
+            //   (s_persion = persion.sayName)   这个赋值语句结果是  这个函数 
+            (s_persion = persion.sayName)(); //window  独自函数   间接函数引用 使用默认规则
+
+        }
+        // 
+        sayName();
+    </script>
+</body>
+
+</html>

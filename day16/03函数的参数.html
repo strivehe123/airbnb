@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function foo(m, n) {
+            console.log(foo.length); //形参的长度
+            console.log(foo.name); //函数的名字
+            console.log(arguments.length); //实参的长度
+            // 实参转化为数组的方法1
+            var bar = Array.from(arguments);
+            var count = bar.filter(item => item % 2 == 0);
+            console.log(count);
+            // 实参转为数组的方法2
+            var bar2 = [].slice.apply(arguments);
+            console.log(bar2);
+            // 实参转为数组的方法3
+            var bar3 = [...arguments];
+            console.log(bar3);
+        }
+        foo(1, 2, 3, 4);
+    </script>
+</body>
+
+</html>

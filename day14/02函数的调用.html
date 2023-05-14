@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function foo(name, age, address) {
+            console.log('foo函数的调用', this);
+            console.log(arguments);
+        }
+        // apply 参数已列表的形式
+        foo.apply('apply', ['saula', 11, 'bj']);
+        // call  参数  ...
+        foo.call(123, 'sakula', 11, 'fsdf');
+
+        function bar(...arg) {
+            console.log(arg, typeof arg);
+
+        }
+        bar(11, 22, 33);
+    </script>
+</body>
+
+</html>

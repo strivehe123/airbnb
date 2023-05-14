@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        // 创建一个空对象
+        // this 指向这个空对象 
+        // 指向 代码
+        // 没有返回非空对象的话  会返回这个对象
+        var name = 'window';
+
+        function Persion(name) {
+            this.name = name;
+            this.foo1 = function() {
+                console.log(this.name);
+            };
+            this.foo2 = () => console.log(this.name);
+            this.foo3 = function() {
+                return function() {
+                    console.log(this.name);
+                }
+            };
+            this.foo4 = function() {
+                //this 
+                return () => console.log(this.name);
+            }
+        }
+        var persion1 = new Persion('persion1');
+        var persion2 = new Persion('persion2');
+        persion1.foo1(); //persion1
+        persion1.foo1.call(persion2); //persion2
+        persion1.foo2(); //persion1
+        persion1.foo2.call(persion2); //persion1
+        persion1.foo3()(); // window
+        persion1.foo3.call(persion2)(); //window
+        persion1.foo3().call(persion2); //persion2
+        persion1.foo4()(); //persion1
+        persion1.foo4.call(persion2)(); //persion2
+        persion1.foo4().call(persion2); //persion1
+    </script>
+</body>
+
+</html>

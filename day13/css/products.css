@@ -1,0 +1,70 @@
+ /* 商品列表 */
+ 
+ .products {
+     display: flex;
+     justify-content: space-between;
+     flex-wrap: wrap;
+     margin-top: 10px;
+ }
+ 
+ .products>.item {
+     width: 291px;
+     height: 386px;
+     margin-bottom: 10px;
+     background-color: #fff;
+ }
+ 
+ .products>span {
+     width: 291px;
+ }
+ /* 商品的每一项  布局 */
+ 
+ .products>.item a {
+     padding-top: 20px;
+     display: flex;
+     flex-direction: column;
+     justify-content: space-between;
+     align-items: center;
+ }
+ 
+ .products>.item .ablum {
+     width: 180px;
+ }
+ 
+ .products>.item .name {
+     margin-top: 10px;
+     font-weight: 700;
+     color: #000;
+ }
+ 
+ .products>.item .discount {
+     margin-top: 10px;
+     font-size: 12px;
+     color: #666;
+ }
+ 
+ .products>.item .price {
+     margin-top: 10px;
+     font-weight: 700;
+     color: red;
+ }
+ 
+ .products>.item .tips {
+     margin-top: 10px;
+     display: flex;
+ }
+ 
+ .products>.item .tips>span {
+     font-size: 12px;
+     margin-right: 2px;
+     border: 1px solid red;
+     border-radius: 3px;
+     padding: 0 3px;
+     color: red;
+ }
+ 
+ .products>.item .comment {
+     margin-top: 10px;
+     font-size: 10px;
+     color: #666;
+ }

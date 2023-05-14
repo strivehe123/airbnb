@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/common.css">
+    <link rel="stylesheet" href="./css/products.css">
+
+    <title>Document</title>
+    <style>
+        /* 面包屑导航 */
+        
+        .crumbs {
+            height: 63px;
+            line-height: 63px;
+            font-size: 12px;
+        }
+        
+        .crumbs .item {
+            cursor: pointer;
+        }
+        
+        .crumbs .item:last-child {
+            color: #000;
+        }
+        /* 操作面板 */
+        
+        .operation {
+            /* height: 100px; */
+            padding: 0 24px;
+            background-color: #fff;
+        }
+        
+        .operation>.row {
+            display: flex;
+        }
+        
+        .operation>.row .item1,
+        .operation>.row .item {
+            width: 104px;
+            height: 48px;
+            text-align: center;
+            line-height: 48px;
+            cursor: pointer;
+        }
+        
+        .operation .item.active {
+            color: red;
+        }
+        
+        .operation>.row .item:first-child {
+            color: #666;
+            cursor: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 商品列表 居中 -->
+    <div class="wrapper">
+        <!-- 面板屑导航 -->
+        <div class="crumbs">
+            <span class="item">首页</span>
+            <span class="item">&gt;</span>
+            <span class="item">笔记本</span>
+        </div>
+        <!-- 操作面板 -->
+        <div class="operation">
+            <!-- 分类 -->
+            <ul class="row category">
+                <li class="item1">分类:</li>
+                <li class="item  ">笔记本</li>
+                <li class="item">台式机</li>
+                <li class="item">智慧屏</li>
+            </ul>
+            <!-- 优惠 -->
+            <ul class="row discount">
+                <li class="item1">服务优惠:</li>
+                <li class="item ">仅看有货</li>
+                <li class="item">分期免息</li>
+                <li class="item">优惠商品</li>
+            </ul>
+            <!-- 排序 -->
+            <ul class="row sort">
+                <li class="item1 ">排序:</li>
+                <li class="item ">综合</li>
+                <li class="item">最新</li>
+                <li class="item">评论数</li>
+                <li class="item">价格</li>
+
+            </ul>
+        </div>
+        <!-- 商品列表 -->
+        <ul class="products">
+            <li class="item">
+                <a href="#">
+                    <!-- 图片 -->
+                    <img class="ablum" src="./img/phone01.webp" alt="">
+                    <!-- 名字 -->
+                    <div class="name">Redmi Note 12 Turbo</div>
+                    <!-- 折扣 -->
+                    <div class="discount">
+                        预定立省300|12期免息
+                    </div>
+                    <!-- 价格 -->
+                    <div class="price">¥5999</div>
+                    <!-- 提示 -->
+                    <div class="tips">
+                        <span>分期免息</span>
+                        <span>赠送积分</span>
+                    </div>
+                    <!-- 评论 -->
+                    <div class="comment">
+                        <span>3190人评价</span>
+                        <span>96% 好评</span>
+                    </div>
+                </a>
+            </li>
+            <li class="item"></li>
+            <li class="item"></li>
+            <li class="item"></li>
+            <li class="item"></li>
+            <li class="item"></li>
+            <!-- 添加span的个数 最大列数 － 1 -->
+            <span></span>
+            <span></span>
+            <span></span>
+
+
+        </ul>
+    </div>
+    <script>
+        var results = [{
+            name: ['台式机', '智慧屏']
+        }, {
+            name: ['台式机', '智慧屏', '笔记本']
+        }, {
+            name: ['智慧屏', '笔记本']
+        }, ];
+        var activeItems = [];
+        var filter_result = [];
+        var categoryDiv = document.querySelector('.operation .category');
+        var discountDiv = document.querySelector('.operation .discount');
+        var sortDiv = document.querySelector('.operator .sort');
+        categoryDiv.addEventListener('click', handleCategoryClick);
+        discountDiv.addEventListener('click', handleCategoryClick);
+
+        function handleCategoryClick(event) {
+            if (!event.target.classList.contains('item')) return
+            var liItem = event.target;
+
+
+            liItem.classList.toggle('active');
+            liContent = liItem.textContent.trim();
+            if (liItem.classList.contains('active')) {
+                activeItems.push(liContent)
+            } else {
+                activeItems.splice(activeItems.indexOf(liContent), 1);
+            }
+
+
+            // 过滤商品算法
+            filter_result = results.filter(function(item) {
+                var flag = true;
+                for (var activeI of activeItems) {
+                    if (!item.name.includes(activeI)) {
+                        flag = false;
+                        break
+                    }
+                }
+                return flag
+            })
+
+
+            console.log(filter_result);
+
+
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/common.css">
+    <link rel="stylesheet" href="./css/reset.css">
+    <style>
+        /* 轮播图 */
+        
+        .banner {
+            position: relative;
+        }
+        /* 轮播图图像区域 */
+        
+        .banner .images {
+            height: 550px;
+            position: relative;
+        }
+        /* 轮播图 单个图像 */
+        
+        .banner .images .item {
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0;
+            overflow: hidden;
+            transition: opacity 1000ms ease-in;
+        }
+        
+        .banner .images .item.active {
+            opacity: 1;
+        }
+        /* 轮播图 单个图像 图像 */
+        
+        .banner .images .item img {
+            /* 保证大图片时钟在父盒子的中心显示   随着父盒子的大小缩进 */
+            position: relative;
+            transform: translateX(-50%);
+            left: 50%;
+            width: 1920px;
+            height: 550px;
+        }
+        
+        .banner .control {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            display: flex;
+            padding: 0 20px;
+            justify-content: space-between;
+        }
+        
+        .banner .control .item {
+            border: none;
+            border-radius: 5px;
+            outline: none;
+            color: #fff;
+            background-color: aqua;
+        }
+        /* 指示器 */
+        
+        .banner .indicator {
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 20px;
+            display: flex;
+            justify-content: center;
+        }
+        
+        .banner .indicator .item {
+            width: 8px;
+            height: 8px;
+            cursor: pointer;
+            border-radius: 50%;
+            background-color: #aaa;
+            margin-right: 10px;
+        }
+        
+        .banner .indicator .item.active {
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 轮播图 -->
+    <div class="banner">
+        <!-- 图片区域 -->
+        <ul class="images">
+
+        </ul>
+        <!-- 控制区域 -->
+        <div class="control">
+            <button class="prev item">上一个</button>
+            <button class="next item">下一个</button>
+        </div>
+        <!-- 指示图标 . -->
+        <div class="indicator">
+            <!-- <div class="item active"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div> -->
+        </div>
+    </div>
+    <script>
+        // banner img data
+        var banner_list = [{
+            imgSrc: './img/banner_02.webp',
+            name: '02'
+        }, {
+            imgSrc: './img/banner_03.webp',
+            name: '03'
+        }, {
+            imgSrc: './img/banner_04.webp',
+            name: '04'
+        }, {
+            imgSrc: './img/banner_05.webp',
+            name: '05'
+        }, {
+            imgSrc: './img/banner_06.webp',
+            name: '06'
+        }, {
+            imgSrc: './img/banner_01.webp',
+            name: '01'
+        }];
+        // banner ul element
+        var ulItem = document.querySelector('.images');
+        // active li element
+        var activeLi = null;
+        // the length of banner list
+        var bannerListCount = banner_list.length;
+        // loop the banner img data create li img  set active
+        for (var banner of banner_list) {
+            var li = document.createElement('li');
+            var img = document.createElement('img');
+            li.classList.add('item');
+            if (banner.name === '02') {
+                li.classList.add('active');
+            }
+            img.setAttribute('src', banner.imgSrc);
+            li.append(img);
+            ulItem.append(li);
+        }
+        // click change the active li element
+        var indicatorDiv = document.querySelector('.indicator');
+        var controlDiv = document.querySelector('.control');
+        var currentIndex = 0;
+        var prevIndex = 0;
+        controlDiv.addEventListener('click', handleControlDiv);
+
+        function handleControlDiv(event) {
+            var divEle = event.target;
+            if (!divEle.classList.contains('item')) return
+                // 点击上一个
+            if (divEle.classList.contains('prev')) {
+                // 找到上一个
+                prevIndex = currentIndex;
+                currentIndex--;
+                if (currentIndex == -1) {
+                    currentIndex = bannerListCount - 1;
+                }
+                // 取消当前 active status
+                switchBanner()
+            }
+            // 点击下一个
+            if (divEle.classList.contains('next')) {
+                prevIndex = currentIndex;
+                currentIndex++;
+                if (currentIndex == bannerListCount) {
+                    currentIndex = 0;
+                }
+                // 取消当前的item的 active status
+                // add the prev item active status
+                switchBanner()
+            }
+        }
+        // 切换item的激活状态
+        function switchBanner() {
+            var currentItem = ulItem.children[currentIndex];
+            var prevItem = ulItem.children[prevIndex];
+
+            prevItem.classList.remove('active');
+            currentItem.classList.add('active');
+            // 指示器添加移除active
+            var currentIndictor = indicatorDiv.children[currentIndex];
+            var prevIndictor = indicatorDiv.children[prevIndex];
+            prevIndictor.classList.remove('active');
+            currentIndictor.classList.add('active');
+        }
+        var timer = null;
+        // 自动轮播效果 调用函数
+        function startInterval() {
+            timer = setInterval(autoBanner, 3000);
+        }
+        // 
+        function stopInterval() {
+
+            clearInterval(timer);
+        }
+        // 自动轮播处理函数
+        function autoBanner() {
+            prevIndex = currentIndex;
+            currentIndex++;
+            if (currentIndex == bannerListCount) {
+                currentIndex = 0;
+            }
+            switchBanner()
+        }
+        // 移除自动轮播
+        ulItem.addEventListener('mouseenter', stopInterval);
+        ulItem.addEventListener('mouseleave', startInterval);
+        // 添加指示器
+        function addIndictor() {
+
+            for (var i = 0; i < bannerListCount; i++) {
+                var itemDiv = document.createElement('div');
+                itemDiv.classList.add('item');
+                itemDiv.dataset.index = i;
+
+                indicatorDiv.append(itemDiv);
+            }
+            indicatorDiv.children[currentIndex].classList.add('active');
+        }
+        addIndictor();
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function foo() {
+            console.log(this);
+            this.address = "yaska";
+        }
+        var bar = {
+            name: 'sakula'
+        };
+        bar.say = foo;
+        // 01  this
+        foo();
+        // 02 this
+        bar.say();
+        //  new 函数
+        // 创建一个新对象 
+        // this 指向这个新对象
+        // 执行 代码块
+        // 没有显示返回非空对象
+        // 默认返回 this
+        // 03 this 
+        new foo();
+        // 显示指定 this  
+        foo.call(bar);
+    </script>
+</body>
+
+</html>

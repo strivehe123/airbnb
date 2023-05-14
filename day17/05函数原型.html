@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 函数原型上面有个非常重要的属性  constructor  有指向了原函数
+        function bar() {
+
+        }
+        console.log(bar.prototype.constructor);
+        console.log(bar.prototype.constructor === bar);
+    </script>
+</body>
+
+</html>

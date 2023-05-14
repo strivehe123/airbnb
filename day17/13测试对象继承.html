@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var foo = {
+            name: 'why',
+            age: 19
+        }
+        var info = {}
+
+        function bar() {}
+        // console.log(info.__proto__);
+        // console.log(Object.getPrototypeOf(info));
+        Object.setPrototypeOf(info, foo);
+        // console.log(info.__proto__)
+        console.log(Object.getPrototypeOf(info))
+        console.log(typeof info)
+        console.log(typeof bar)
+        console.log(bar.prototype)
+    </script>
+</body>
+
+</html>

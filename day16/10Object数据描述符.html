@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var bar = {
+            name: "sakula",
+            age: 12
+        };
+        Object.defineProperty(bar, "address", {
+            value: "bj",
+            configurable: false, //默认是false  不可删除
+            writable: false, //默认false  不可修改
+            enumerable: false //默认false  不可枚举
+        });
+        delete bar.address;
+        bar.address = "sh";
+        console.log(bar);
+
+        console.log(Object.keys(bar));
+        // 获取属性
+        console.log(Object.getOwnPropertyDescriptor(bar, 'name'));
+        console.log(Object.getOwnPropertyDescriptors(bar));
+    </script>
+</body>
+
+</html>
