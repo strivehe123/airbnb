@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function Persion(name, age) {
+            this.name = name;
+            this.age = age;
+        }
+        // 添加到Persion原型上的方法也称作实例方法
+        Persion.prototype.say = function() {
+            console.log('say')
+        }
+        Persion.createPersion = function() {
+            name_list = ['aaa', 'bbb', 'ccc', 'ddd', 'eee'];
+            name_index = Math.floor(Math.random() * 5);
+            age = Math.floor(Math.random() * 80);
+            return new Persion(name_list[name_index], age)
+        }
+        var per1 = new Persion('sakula', 11);
+        per1.say();
+        // 不能直接调用 
+        // Persion.say();
+        // 可以直接调用类方法  Persion构造函数 有自己 propotype  
+        //  Persion构造函数 自己也是  对象  有自己的 __proto__
+        // Persion构造函数 对象  是由  Function 构造函数构造的   所以 Persion.__proto__===Function.prototype
+        var per2 = Persion.createPersion();
+        console.log(per2);
+        console.log(Persion.__proto__ === Function.prototype);
+        console.log(Object.getPrototypeOf(Persion) === Function.prototype)
+            //
+    </script>
+</body>
+
+</html>

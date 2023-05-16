@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // WeakMap 的键值只能是对象类型
+        // WeakMap 键值 对象 是弱引用  如果没有其他引用这个对象  gc可以回收
+        let info1 = {
+            name: 'sakula'
+        }
+        let info2 = {
+            name: 'yasaka'
+        }
+        const my = new WeakMap();
+        const hah = new Map();
+        // hah.set(info1, 'a')
+        // info1 = null
+        // console.log(hah.size)//gc  不会回收 强引用
+        my.set(info1, 'fu shi shan xia');
+        my.set(info2, 'anwhere who knows');
+        // my.set(111, info1)  //报错  只有对象才可以是key
+        info1 = null
+        info2 = null
+        console.log(my.size) //gc  会回收  弱引用
+            // Weak Map  neithor forEach nor   for  ... of...
+    </script>
+</body>
+
+</html>

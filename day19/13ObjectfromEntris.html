@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const obj = {
+                name: 'sakula',
+                age: 11,
+                address: 'beijing'
+            }
+            // object 转换为 二维数组  
+        const a = Object.entries(obj);
+        // console.log(a);
+        // 二维数组转化为 object
+        const info = Object.fromEntries(a);
+        // console.log(info);
+        const names = Object.fromEntries([
+            ['hello', ' world'],
+            ['你好', '王樱荣'],
+            ['jams', ' bond']
+        ]);
+        // console.log(names)
+        // 应用
+        const searchStr = '?name=why&age=18&height=188';
+        const params = new URLSearchParams(searchStr);
+        // console.log(params);
+        // for (let item of params) {
+        //     console.log(item);
+        // }
+        const paramsObj = Object.fromEntries(params.entries());
+        console.log(paramsObj);
+    </script>
+</body>
+
+</html>

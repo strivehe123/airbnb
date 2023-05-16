@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // es6 继承内置类 扩展元方法
+        class XTArray extends Array {
+            constructor(...args) {
+                super(...args)
+            }
+            get lastItem() {
+                return this[this.length - 1]
+            }
+            firstItem() {
+                return this[0]
+            }
+        }
+        Array.prototype.lastItem2 = function() {
+            return this[this.length - 1]
+        }
+        var arr = new XTArray(1, 2, 2, 3);
+        console.log(arr);
+        console.log(arr.lastItem)
+        console.log(arr.firstItem())
+        console.log(arr.lastItem2())
+            // console.log([1, 2, 3, 4].lastItem())
+    </script>
+</body>
+
+</html>

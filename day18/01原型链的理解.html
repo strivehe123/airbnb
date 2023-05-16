@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // Object的显示原型
+        // console.log(Object.prototype);
+        var obj = new Object();
+        // obj.__proto__==Object.prototype
+        function foo() {} // 是 new Function() 的实例 
+        console.log(foo.__proto__)
+        console.log(Function.prototype)
+        console.log(Object.__proto__ === Function.prototype) //Object 对象 的是由 Function构造函数创建的   Object.__proto__===Function.prototype
+        console.log(Function.__proto__ === Function.prototype) // Function 对象是由 Fuction构造函数创建的   Function.__proto__===Function.prototype
+        console.log(Object.prototype)
+    </script>
+</body>
+
+</html>

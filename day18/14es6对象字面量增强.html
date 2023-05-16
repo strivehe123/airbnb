@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 属性的增强
+        // 方法的增强
+
+        var message = 'aa';
+        var name = 'sakula';
+        var key = 'address';
+        var obj = {
+            // 1属性增强
+            message,
+            name,
+
+            run: function() {
+                console.log(this, 'run')
+            },
+            eat: () => {
+                console.log(this, 'eat')
+            },
+            // 2 方法的增强
+            swim() {
+                console.log(this, 'swim')
+            },
+            // 3 计算属性的增强  computed property names
+            [key]: '北京'
+        };
+
+        function F() {
+            var address = 'aa';
+            var age = 11;
+            return {
+                address,
+                age
+            }
+        }
+        obj.run();
+        obj.eat();
+        obj.swim();
+        console.log(obj)
+    </script>
+</body>
+
+</html>

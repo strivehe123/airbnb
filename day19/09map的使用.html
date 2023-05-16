@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const obj1 = {
+            name: '11'
+        }
+        const obj2 = {
+            age: 22
+        }
+        const obj3 = {
+                address: 'bj',
+                obj1: obj2,
+                [obj1]: 'hah',
+                [obj2]: 'aa'
+            }
+            // console.log(obj3[obj1])
+            // Map 的创建
+        const my = new Map();
+        my.set(obj1, 'haha');
+        my.set(obj2, 2);
+        // Map常见的属性 size
+        // console.log(my.size)
+        // Map的方法 set  可以新增 也可以修改内容
+        my.set(obj1, 'ccc');
+        // console.log(my);
+        // Map方法 get 获取内容
+        let obj1_content = my.get(obj1);
+        // console.log(obj1_content)
+        // Map的方法  delete  删除内容
+        my.delete(obj1);
+        // console.log(my)
+        // Map方法  has  判断是否有内容
+        // console.log(my.has(obj2))
+        // Map 方法  清空 
+        my.clear();
+        // console.log(my)
+        my.set(obj1, 11);
+        my.set(obj2, 'add');
+        my.set(obj3, [1, 'aa', obj1, obj2]);
+        // Map 的forEach  方法直接获取 value
+        // my.forEach(item => console.log(item))
+        // Map的 for  of 方法
+        for (let item of my) {
+
+            // console.log(item)
+            // 数组的解构
+            const [key, value] = item;
+            console.log('key: ', key, 'value: ', value)
+        }
+    </script>
+</body>
+
+</html>

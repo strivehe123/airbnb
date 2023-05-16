@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // foo.__proto__==Function.prototype
+        // foo 对象的隐士原型  是 Function 方法的显示原型
+        function foo(name, age) {
+            console.log(this, name, age);
+        }
+        //bar.__proto__==Function.prototype
+        function bar() {}
+        // foo.apply('abc', ['sakula', 11]);
+        // console.log(Function.prototype.call);
+        // console.log(Function.prototype.apply === foo.apply);
+        // 在Function.prototype 添加的属性和方法 能被 foo等函数  继承
+        Function.prototype.info = 'Function info';
+        // console.log(bar.info);
+        Function.prototype.myapply = function(this_arg, arg_list) {
+                this_arg = (this_arg === null || this_arg === undefined) ? window : Object(this_arg);
+                // console.log(this_arg);
+                Object.defineProperty(this_arg, 'fn', {
+                    configurable: true,
+                    value: this
+                });
+                this_arg.fn(...arg_list);
+                delete this_arg.fn
+                    // console.log(this);
+            }
+            // foo.myapply({
+            //     name: 'sakula'
+            // }, ['sss', 11]);
+            // 给Function.prototype 绑定 call方法
+        Function.prototype.mycall = function(this_arg, ...other_args) {
+            this_arg = (this_arg === null || this_arg === undefined) ? window : Object(this_arg);
+            Object.defineProperty(this_arg, 'fn', {
+                configurable: true,
+                value: this
+            })
+            this_arg.fn(...other_args);
+            delete this_arg.fn
+        }
+        foo.mycall({
+            name: 'yasaka'
+        }, 'ssss', 222)
+    </script>
+</body>
+
+</html>

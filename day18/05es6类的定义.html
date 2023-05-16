@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var obj = {
+            swim() {},
+            run: () => {
+
+            },
+            say: function() {
+
+            }
+        };
+        class Student {
+            constructor(name, age) {
+                this.name = name;
+                this.age = age;
+            }
+        }
+        var stu = new Student('why', 11);
+        console.log(stu);
+        console.log(stu.__proto__ === Student.prototype);
+        console.log(Student.__proto__ === Function.prototype);
+    </script>
+</body>
+
+</html>

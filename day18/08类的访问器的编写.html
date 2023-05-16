@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        class Rectangle {
+            constructor(x, y, width, heigh) {
+                this.x = x;
+                this.y = y;
+                this.width = width;
+                this.heigh = heigh;
+            }
+            get position() {
+                return {
+                    x: this.x,
+                    y: this.y
+                }
+            }
+            get size() {
+                return {
+                    width: this.width,
+                    heigh: this.heigh
+                }
+            }
+        }
+        var r = new Rectangle(10, 10, 111, 222);
+        console.log(r.position);
+        console.log(r.size);
+    </script>
+</body>
+
+</html>

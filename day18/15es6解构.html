@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // es6 解构 拆包 destructing
+        // 01 数组的解构
+        var names = ['aaa', 'bbb', 'ccc', 'ddd', 'eee', undefined];
+        var [name1, name2, name3] = names;
+        console.log(name1, name2, name3);
+        // 01.1 数组解构有严格的顺序
+        var [n1, , n3] = names;
+        console.log('n1,n3: ', n1, n3);
+        // 01.2 数组解构出数组
+        var [n1, n2, ...n3] = names;
+        console.log('n1,n2,n3s:', n1, n2, n3);
+        // 01 .3 组件解构 默认值
+        var [n1, n2, n3, n4, n5, n6 = 'default'] = names;
+        console.log('n6:', n6);
+        // 02 对象的解构
+        // 对象解构没有顺序 是根据key解构的
+        var obj = {
+            name: 'sakula',
+            age: 11,
+            height: 180
+        };
+
+        var {
+            name,
+            height,
+            age
+        } = obj;
+        console.log(name, age, height);
+        // 02.1 对象解构 对变量进行重新命名
+        var {
+            name: hname,
+            height: hheight
+        } = obj;
+        console.log('rename obj :', hname, hheight);
+        // 02.2 对象解构 默认值
+        var {
+            name: h_name,
+            address: h_address = 'beijing'
+        } = obj;
+        console.log(h_name, h_address);
+        // 02.3对象的剩余内容
+        var {
+            name,
+            ...ext
+        } = obj;
+        console.log(ext, typeof ext);
+        // 对象解构的使用
+        function getPersion({
+            x,
+            y
+        }) {
+            console.log(x, y)
+        }
+        getPersion({
+            y: 100,
+            x: 10
+        });
+    </script>
+</body>
+
+</html>

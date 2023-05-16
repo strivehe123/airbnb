@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="card"></div>
+    <script>
+        // 字符串的填充
+        const min = '5'.padStart(2, 0);
+        const sec = '15'.padStart(2, 0)
+            // 应用场景1
+        console.log(`${min}:${sec}`)
+        const card = document.querySelector('.card')
+        const id = '142733198910310011';
+        const slice_id = id.slice(0, -4).padEnd(18, '*');
+        card.textContent = slice_id;
+    </script>
+</body>
+
+</html>

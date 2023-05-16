@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function mixinFlying(baseClass) {
+            return class extends baseClass {
+                flying() {
+                    console.log('flying...')
+                }
+            }
+        }
+
+        function mixinSwiming(baseClass) {
+            return class extends baseClass {
+                swim() {
+                    console.log('swimming...')
+                }
+            }
+        }
+        class Bird {
+            eating() {
+                console.log('eatting..')
+            }
+        }
+        class NewBird extends mixinSwiming(mixinFlying(Bird)) {}
+        var nb = new NewBird()
+        nb.eating();
+        nb.flying();
+        nb.swim();
+    </script>
+</body>
+
+</html>

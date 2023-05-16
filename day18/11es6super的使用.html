@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //super的使用  可以在 构造函数 实例方法  静态方法中使用
+        class Animal {
+            constructor() {
+
+            }
+            running() {
+                console.log('running.')
+            }
+            static sleeping() {
+                console.log('sleeping')
+            }
+        }
+        class Dog extends Animal {
+            constructor() {
+                    super()
+                }
+                // 重新 实例方法
+            running() {
+                    super.running()
+                    console.log('four leg running.')
+                }
+                // 重新类方法
+            static sleeping() {
+                super.sleeping()
+                console.log('pa zhe shui')
+            }
+        }
+        Dog.sleeping()
+        var d = new Dog();
+        d.running()
+    </script>
+</body>
+
+</html>

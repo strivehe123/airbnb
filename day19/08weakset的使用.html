@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // WeakSet的使用
+        const mper = new WeakSet();
+        const set = new Set();
+        class Persion {
+            constructor() {
+                mper.add(this);
+                set.add(this)
+            }
+            running() {
+                if (!mper.has(this)) return
+                console.log('running.')
+            }
+        }
+        let per = new Persion();
+        // 不是此类的实例对象 不能调用
+        const obj = {};
+        obj.run = per.running
+        obj.run();
+        // 可以调用
+        per.running()
+        per = null;
+        console.log(mper.size) // 销毁了 
+        console.log(set.size) //没有销毁
+    </script>
+</body>
+
+</html>
