@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 返回值的区别
+        // 异步函数的返回值
+        // 异步函数会返回一个 Promise.resolve(res)
+        async function foo() {
+            // throw new Error('hah')
+            // 01 返回一个普通的值
+            // return 31
+            // 02 返回一个Promise 对象
+            // return new Promise((resolve, reject) => {
+            //     console.log('wowo')
+            //     setTimeout(() => {
+            //         console.log('lala')
+
+            //         resolve('fuck')
+            //     }, 300)
+            // })
+            // 03 返回一个thenable
+            return {
+                then(resolve, reject) {
+                    setTimeout(() => {
+                        console.log('thenable la')
+                        resolve('o3')
+                    }, 3000)
+                }
+            }
+        }
+        foo()
+            .then((res) => {
+                console.log(res)
+            })
+            .catch((err) => console.log(err))
+        console.log('woshi ji')
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function bar() {
+            return new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    console.log('bar 3s 执行完成')
+                        // 01 正常返回 fulfilled 状态
+                        // resolve('bar')
+                        // 02 抛出异常
+                    reject('error ..')
+                }, 3000)
+            })
+        }
+        async function foo() {
+            console.log('--------------')
+                // await 只能在异步函数中使用  后面跟一个Promise 对象  会等待该对象 fulfilled状态后 执行接下来的函数
+            const res = await bar()
+            console.log('+++++++++')
+        }
+
+        foo().catch((err) => {
+            console.log('err: ', err)
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const info = {
+            name: 'sakula',
+            age: 11,
+            address: 'beijing',
+            score: 111,
+            [Symbol.iterator]() {
+                const keys = Object.keys(this) //获取对象的键的集合列表
+                const values = Object.values(this) //获取对象的值的集合列表
+                const entris = Object.entries(this) //获取对象的键值集合列表
+                let index = 0
+                const iterator = {
+                    next: () => {
+                        if (index < entris.length) {
+                            return {
+                                done: false,
+                                value: entris[index++]
+                            }
+                        } else {
+                            return {
+                                done: true,
+                                value: undefined
+                            }
+                        }
+                    }
+                }
+                return iterator
+            }
+        }
+        for (const entri of info) {
+            console.log(entri)
+        }
+    </script>
+</body>
+
+</html>

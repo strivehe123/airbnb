@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const names = ['aaa', 'bbb', 'ccc', 'ddd', 'eee']
+        let index = 0
+            // 0 创建迭代器
+            // 1 JavaScript iterator 是一个对象
+            // 2 该对象 实现了 next方法
+            // 3 next 方法 有一个参数 或者没有
+            // 4 next 方法 返回一个对象
+            // 5 返回的对象 有done,value 两个key
+        const names_iterator = {
+            next() {
+                if (index < names.length) {
+                    return {
+                        done: false,
+                        value: names[index++]
+                    }
+                } else {
+                    return {
+                        done: true,
+                        value: undefined
+                    }
+                }
+            }
+        }
+        const name1 = names_iterator.next()
+        const name2 = names_iterator.next()
+    </script>
+</body>
+
+</html>

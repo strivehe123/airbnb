@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 生成器函数  的声明
+        function* foo() {
+                console.log('first 1')
+                console.log('second 1')
+                yield 1
+                console.log('first 2')
+                console.log('second 2')
+                yield 2
+                console.log('first 3')
+                console.log('second 3')
+                yield 3
+                console.log('first 4')
+                console.log('second 4')
+                yield 4
+            }
+            // 生成器函数的执行会返回一个生成器
+            // 生成器是一个特殊的迭代器
+        const generator = foo()
+        const res1 = generator.next()
+        console.log(res1)
+        const res2 = generator.next()
+        console.log(res2)
+        const res3 = generator.next()
+        console.log(res3)
+        const res4 = generator.next()
+        console.log(res4)
+        const res5 = generator.next()
+        console.log(res5)
+        generator.next()
+    </script>
+</body>
+
+</html>

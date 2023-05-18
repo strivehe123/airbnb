@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function executeCode(counter) {
+            const promise = new Promise((resolve, reject) => {
+                // 异步请求代码 放在Promise的回调函数中
+                setTimeout(() => {
+                    console.log('异步请求完成.')
+                        // 请求成功   回调这个
+                        // resolve('ok')
+                        // 请求失败
+                    reject('err')
+                }, 3000)
+            })
+            return promise
+        }
+        const promise = executeCode(1000)
+        promise.then((res) => console.log(res)).catch((err) => console.log(err))
+        promise.catch((err) => console.log(err))
+    </script>
+</body>
+
+</html>

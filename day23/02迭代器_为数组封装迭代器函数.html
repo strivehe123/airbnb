@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const names = ['aaa', 'bbb', 'ccc', 'ddd', 'eee']
+        const nums = [1, 2, 3, 4, , 5, 6]
+            // 封装一个函数
+        function arrayIterator(arr) {
+            let index = 0
+            return {
+                next() {
+                    if (index < arr.length) {
+                        return {
+                            done: false,
+                            value: arr[index++]
+                        }
+                    } else {
+                        return {
+                            done: true,
+                            value: undefined
+                        }
+                    }
+                }
+            }
+        }
+        const names_iterator = arrayIterator(names)
+        const nums_iterator = arrayIterator(nums)
+        console.log(names_iterator.next())
+        console.log(nums_iterator.next())
+    </script>
+</body>
+
+</html>

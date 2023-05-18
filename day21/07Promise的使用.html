@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const p2 = new Promise((resolve, reject) => {
+            setTimeout(() => {
+                console.log('第二次异步操作完成')
+                resolve('lala')
+            }, 1000)
+        })
+        const promise = new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    console.log('异步操作完成.')
+                    resolve({
+                        code: 200,
+                        data: [1, 2, 3]
+                    })
+                }, 2000)
+            })
+            // then 方法返回一个新的Promise 这个新的Promise的决议是 then方法传入的回调函数 返回值
+            // 把这个返回值 resolve(value)
+            // thenable
+        promise
+            .then((res) => {
+                const data = res.code == 200 && res.data
+                console.log(data)
+                return 'sakula'
+            })
+            .then((res) => p2)
+            .then((res) => console.log(res))
+            .then((res) => {
+                return {
+                    then(resovle) {
+                        resovle('gogo')
+                    }
+                }
+            })
+            .then((res) => console.log(res))
+            .catch((err) => console.log(err))
+    </script>
+</body>
+
+</html>

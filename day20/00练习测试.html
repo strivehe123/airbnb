@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body>
+    <script src="./00练习手写es5寄生式继承实现.js"></script>
+    <script>
+        function Persion(name, age) {
+            this.name = name
+            this.age = age
+        }
+        Persion.prototype.run = function() {
+            console.log(`${this.name} is running`)
+        }
+
+        function Student(name, age, sno, score) {
+            Persion.call(this, name, age)
+            this.sno = sno
+            this.score = score
+        }
+        inherit(Student, Persion)
+        Student.prototype.study = function() {
+            console.log(`${this.name} is studying`)
+        }
+
+        var stu = new Student('sakula', 11, 01, 100)
+        stu.run()
+        stu.study()
+    </script>
+</body>
+
+</html>

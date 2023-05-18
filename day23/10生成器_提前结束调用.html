@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function* foo(arg) {
+            console.log(`函数第一部分...${arg}`)
+            const g1 = yield 'end first'
+            console.log(`函数第二部分...${g1}`)
+            const g2 = yield 'end second'
+            console.log(`函数第三部分...${g2}`)
+        }
+        const generator = foo('fffff')
+        const a1 = generator.next()
+        console.log(a1)
+        const a2 = generator.return('haha')
+        console.log(a2)
+        const a3 = generator.next('xixi')
+        console.log(a3)
+    </script>
+</body>
+
+</html>

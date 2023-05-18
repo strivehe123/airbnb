@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function Persion(name, age) {
+            this.name = name
+            this.age = age
+        }
+
+        function Student() {}
+        // 函数的反射
+        const stu = Reflect.construct(Persion, ['sakula', 11], Student)
+
+        console.log(Reflect.getPrototypeOf(stu) === Student.prototype)
+        console.log(stu.name, stu.age)
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 监听对象属性的操作
+        const obj = {
+                name: 'saula',
+                age: 18,
+                height: 188
+            }
+            // 创建代理对象
+        const obj_proxy = new Proxy(obj, {
+            set: function(target, key, value) {
+                console.log(`监听: ${key}的设置...`)
+                target[key] = value
+            },
+            get: function(target, key) {
+                console.log(`监听: ${key}的获取`)
+                return target[key]
+            }
+        })
+        console.log(obj_proxy.name)
+        obj_proxy.age = 34
+        console.log(obj_proxy.age)
+    </script>
+</body>
+
+</html>

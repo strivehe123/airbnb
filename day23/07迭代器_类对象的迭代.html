@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        class Persion {
+            constructor(name, friends) {
+                    this.name = name
+                    this.friends = friends
+                }
+                // 实例方法
+                [Symbol.iterator]() {
+                    let index = 0
+                    const iterator = {
+                        next: () => {
+                            if (index < this.friends.length) {
+                                return {
+                                    done: false,
+                                    value: this.friends[index++]
+                                }
+                            } else {
+                                return {
+                                    done: true,
+                                    value: undefined
+                                }
+                            }
+                        },
+                        // 迭代器中断可以监听到
+                        return: () => {
+                            console.log('迭代器中断了...')
+                            return {
+                                done: true
+                            }
+                        }
+                    }
+                    return iterator
+                }
+        }
+        const p1 = new Persion('s', ['a', 'b', 'c', 'd'])
+        for (const friend of p1) {
+            console.log(friend)
+            if (friend === 'c') {
+                break
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const names = [1, 2, 3, 4, 5, 6]
+            // 方式1
+            // const names_iterator = names[Symbol.iterator]()
+            // console.log(names_iterator)
+            // 方式 2
+        function* arr_generator(arr) {
+                for (let i = 0; i < arr.length; i++) {
+                    yield arr[i]
+                }
+            }
+            // const names_iterator = arr_generator(names)
+            // console.log(names_iterator.next())
+            // console.log(names_iterator.next())
+            // console.log(names_iterator.next())
+            // console.log(names_iterator.next())
+            // console.log(names_iterator.next())
+            // console.log(names_iterator.next())
+            // console.log(names_iterator.next())
+            // 生成器的使用
+            // 生成[3,9)数
+        function* createNumberRange(start, end) {
+            for (let i = start; i < end; i++) {
+                yield i
+            }
+        }
+        const numberIterator = createNumberRange(3, 9)
+        console.log(numberIterator.next())
+        console.log(numberIterator.next())
+        console.log(numberIterator.next())
+        console.log(numberIterator.next())
+        console.log(numberIterator.next())
+        console.log(numberIterator.next())
+        console.log(numberIterator.next())
+        console.log(numberIterator.next())
+        console.log(numberIterator.next())
+        console.log(numberIterator.next())
+        console.log(numberIterator.next())
+    </script>
+</body>
+
+</html>

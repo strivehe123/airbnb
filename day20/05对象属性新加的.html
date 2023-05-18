@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        class Persion {
+            // 对象属性  public
+            height = 188
+                // 私有属性
+                // # score = 11
+                //类的属性
+            static total = 1111
+                //类的私有属性
+                // static# male = 100
+                //静态代码块
+            static {
+                console.log('111')
+            }
+            constructor(name, age) {
+                this.name = name
+                this.age = age
+            }
+        }
+        const per = new Persion('sakula', 11)
+            // console.log(per.name, per.height, per.age, per.#score)
+        console.log(per.name, per.height, per.age)
+        console.log(per.total) //undefined
+        console.log(Persion.total)
+    </script>
+</body>
+
+</html>

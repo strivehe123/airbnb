@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const obj = {
+            name: 'sakula',
+            age: 11,
+            set(_name) {
+                console.log(this)
+                this.name = _name
+            }
+        }
+        const obj_proxy = new Proxy(obj, {
+            set: function(target, key, newValue, receiver) {
+                // console.log(receiver === obj_proxy)
+                // 不直接操作源对象
+                // 操作结果有返回值
+                const flag = Reflect.set(target, key, newValue)
+                if (flag) {
+                    console.log('修改成功')
+                } else {
+                    throw new Error(`修改${key}失败`)
+                }
+            },
+            get: function(target, key, receiver) {}
+        })
+        obj_proxy.name = 'kebo'
+        console.log(obj)
+    </script>
+</body>
+
+</html>

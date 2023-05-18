@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 把info 对象 变成一个可迭代对象
+        // 必须实现 [Symbol.iterator]计算属性的 函数
+        // 该函数的返回值 必须是一个迭代器对象
+        const info = {
+                friends: ['jams', 'curry', 'sakula', 'wyr'],
+                [Symbol.iterator]() {
+                    let index = 0
+                    const info_iterator = {
+                        next: () => {
+                            if (index < this.friends.length) {
+                                return {
+                                    done: false,
+                                    value: this.friends[index++]
+                                }
+                            } else {
+                                return {
+                                    done: true,
+                                    value: undefined
+                                }
+                            }
+                        }
+                    }
+                    return info_iterator
+                }
+            }
+            // 可迭代对象的特定
+            // const iterator = info[Symbol.iterator]()
+            // console.log(iterator)
+            // console.log(iterator.next())
+            // console.log(iterator.next())
+            // console.log(iterator.next())
+            // console.log(iterator.next())
+            // 可迭代对象  可以进行 for....of .... 操作
+            // for (let item of info) {
+            //     console.log(item)
+            // }
+        const names = [1, 2, 3, 4, 5]
+            // console.log(names[Symbol.iterator]())
+        const names_iterator = names[Symbol.iterator]()
+        console.log(names_iterator.next())
+    </script>
+</body>
+
+</html>

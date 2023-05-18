@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const p = new Promise((resolve, reject) => {
+            setTimeout(() => {
+                resolve('ok')
+            }, 3000)
+        })
+        const promise = new Promise((resolve, reject) => {
+            // resolve的参数 是一个promise对象的话  结果 由该promise对象的状态决定
+            resolve(p)
+        })
+        promise.then((res) => console.log(res))
+    </script>
+</body>
+
+</html>
