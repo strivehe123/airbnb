@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 创建正则表达式
+        const re1 = new RegExp('abc', 'ig')
+        const re2 = /aaa/gi
+            // 01 正则表达式对象的实例方法
+            // exec 返回[]||null  执行  返回匹配到的
+            // test  判断字符串是否符合正则的规则 返回 true || false
+            // 02 字符串的方法 传入一个正则表达式对象
+            // replace   返回一个新的字符串
+            // replaceAll  返回一个新的字符串
+            // search 返回索引位置 || -1
+            // match 返回 [] || null
+            // matchAll 返回一个迭代器对象
+            // split
+        const message = 'fff13123abc 534435ABC sdsfabc f655ABCf'
+        const new_message = message.replaceAll(/abc/gi, 'NBA')
+        console.log(new_message)
+        console.log('message是否符合正则规则:', re1.test(message))
+        console.log(re1.exec(message))
+            // 字符串 match
+        const match_message = message.match(re1)
+        console.log(match_message)
+            // 字符串方法 matchAll  里面的正则必须加g
+        const match_all_message = message.matchAll(re1)
+        console.log(match_all_message.next())
+            // 迭代器可以 for ...of
+        for (let item of match_all_message) {
+            console.log(item)
+        }
+        // 字符串方法 split
+        const split_message = message.split(re1)
+        console.log(split_message)
+            // 字符串方法 search
+        const search_position = message.search(re1)
+        console.log(search_position)
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" />
+    <button>取消</button>
+    <script>
+        const input = document.querySelector('input')
+        const button = document.querySelector('button')
+
+        function hx_debounce(fn, delay, immediate = true) {
+            let timer = null
+            let invoke = false
+            const _debounce = function(...arg) {
+                return new Promise((resolve, reject) => {
+                    try {
+                        // 第一次立即执行
+                        if (immediate && !invoke) {
+                            const res = fn.apply(this, arg)
+                            invoke = true
+                            resolve(res)
+                            return
+                        }
+                        if (timer) clearTimeout(timer)
+                        timer = setTimeout(() => {
+                            const res = fn.apply(this, arg)
+                            invoke = false
+                            resolve(res)
+                        }, delay)
+                    } catch (err) {
+                        reject(err)
+                    }
+                })
+            }
+            _debounce.cancel = function() {
+                if (timer) {
+                    clearTimeout(timer)
+                    timer = null
+                    invoke = false
+                }
+            }
+            return _debounce
+        }
+
+        function input_handle(...arg) {
+            console.log('输入的值', this.value)
+            console.log('参数:', arg)
+            return 'fuck'
+        }
+        const hx_debounce_instance = hx_debounce(input_handle, 1000)
+        input.addEventListener('input', hx_debounce_instance)
+        button.addEventListener('click', hx_debounce_instance.cancel)
+            // hx_debounce_instance('a', 1000).then((res) => console.log(res))
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" />
+    <button>取消</button>
+    <script>
+        function hxthrottle(fn, interval) {
+            let starttime = 0 //开始时间
+            const _throttle = function(...arg) {
+                const nowtime = new Date().getTime()
+                const waittime = interval - (nowtime - starttime)
+                if (waittime <= 0) {
+                    fn.apply(this, arg)
+                    starttime = nowtime
+                }
+            }
+            return _throttle
+        }
+    </script>
+    <script>
+        const input = document.querySelector('input')
+        const button = document.querySelector('button')
+        let count = 0
+        input.addEventListener(
+            'input',
+            hxthrottle(function(event) {
+                console.log(`发送网络请求${count++},${this.value}`)
+                console.log(event)
+            }, 1000)
+        )
+    </script>
+</body>
+
+</html>

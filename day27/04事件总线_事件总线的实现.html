@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body>
+    <button>fuck</button>
+    <script>
+        class HyEventBus {
+            constructor() {
+                this.eventMap = {}
+            }
+            on(eventname, eventfn) {
+                let eventfns = this.eventMap[eventname]
+                if (!eventfns) {
+                    eventfns = []
+                    this.eventMap[eventname] = eventfns
+                }
+                eventfns.push(eventfn)
+            }
+            emit(eventname, ...arg) {
+                const eventfs = this.eventMap[eventname]
+                if (!eventfs) return
+                eventfs.forEach((element) => {
+                    element(...arg)
+                })
+            }
+            off(eventname, eventfn) {
+                const eventfs = this.eventMap[eventname]
+                if (!eventfs) return
+                for (let i = 0; i < eventfs.length; i++) {
+                    let fn = eventfs[i]
+                    if (fn === eventfn) {
+                        eventfs.splice(i, 1)
+                        break
+                    }
+                }
+                // 如果eventfns 数组为空
+                if (eventfs.length === 0) {
+                    delete this.eventMap[eventname]
+                }
+            }
+        }
+        // 使用过程
+        const eventBus = new HyEventBus()
+            // aside vue中的监听
+        eventBus.on('navclick', (...arg) => {
+            console.log('navclick 01')
+            console.log(arg)
+        })
+        const cl = (...arg) => {
+            console.log('navclick 02')
+            console.log(arg)
+        }
+        eventBus.on('navclick', cl)
+            // nav.vue
+        setTimeout(() => {
+            eventBus.off('navclick', cl)
+        }, 4000)
+        const btn = document.querySelector('button')
+        btn.addEventListener('click', function() {
+            console.log('自己监听点击')
+            eventBus.emit('navclick', 'hah', '111')
+        })
+    </script>
+</body>
+
+</html>

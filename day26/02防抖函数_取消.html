@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" />
+    <button>取消</button>
+    <script>
+        function debounce(fn, delay) {
+            let timer = null
+            const _debounce = function(...args) {
+                    if (timer) clearTimeout(timer)
+                    timer = setTimeout(() => {
+                        fn.apply(this, args)
+                        timer = null
+                    }, delay)
+                }
+                // 函数也是对象
+            _debounce.cancel = function() {
+                if (timer) clearTimeout(timer)
+            }
+            return _debounce
+        }
+
+        function inputHandle(...args) {
+            console.log(this.value)
+        }
+        const input = document.querySelector('input')
+        const buttonj = document.querySelector('button')
+        const debounceFn = debounce(inputHandle, 2000)
+        input.addEventListener('input', debounceFn)
+        buttonj.addEventListener('click', function() {
+            debounceFn.cancel()
+        })
+    </script>
+</body>
+
+</html>

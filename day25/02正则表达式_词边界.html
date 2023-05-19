@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const message = 'my name is sakula'
+        const message_1 = 'myname is sakula'
+        const message_2 = 'now time is 12:11 next time is 13:22 score is 111:222'
+            // 词边界  word boundry
+        const re = /\bname\b/gi
+        console.log(re.test(message))
+        console.log(re.test(message_1))
+            // 词边界的应用2
+        const re_1 = /\b\d\d:\d\d\b/gi
+        const re_2 = /\d\d:\d\d/gi
+        console.log(message_2.match(re_1))
+        console.log(message_2.match(re_2))
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const info = {
+                name: 'sakula',
+                friends: {
+                    name: 'kobe'
+                },
+                run() {},
+                [Symbol()]: 'abc'
+            }
+            // 01 引用赋值
+        const bar = info
+            // 02 浅拷贝
+        const foo = {...info
+            }
+            // 02 .2 浅拷贝
+        const foo_2 = Object.assign({}, info)
+            // json 实现
+        const foo_3 = JSON.parse(JSON.stringify(info))
+        console.log(foo_3)
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body>
+    <script src="./is_object.js"></script>
+    <script>
+        // const map = new Map()
+
+        function deep_copy(obj, map = new WeakMap()) {
+            // 判断是否时symbol
+            if (typeof obj === 'symbol') {
+                return Symbol(obj.description)
+            }
+            // 如果是原始类型 直接返回
+            if (!is_object(obj)) return obj
+                // 如果是Set类型
+            if (obj instanceof Set) {
+                const newSet = new Set()
+                for (const item of obj) {
+                    newSet.add(deep_copy(item, map))
+                }
+                return newSet
+            }
+            // 如果是函数类型不需要进行深拷贝  直接返回
+            if (typeof obj === 'function') {
+                return obj
+            }
+            // 查看新对象是否在map中
+            if (map.get(obj)) {
+                return map.get(obj)
+            }
+            // 如果是对象类型才需要创建新对象
+            const new_obj = Array.isArray(obj) ? [] : {}
+            map.set(obj, new_obj)
+            for (const key in obj) {
+                new_obj[key] = deep_copy(obj[key], map)
+            }
+            // 单独遍历symbol
+            const symbokKeys = Object.getOwnPropertySymbols(obj)
+            for (const symbolkey of symbokKeys) {
+                new_obj[Symbol(symbolkey.description)] = deep_copy(obj[symbolkey], map)
+            }
+            return new_obj
+        }
+        const set = new Set([1, 2, 3, 4])
+        const s1 = Symbol('xxx')
+            // const obj = ();
+        const info = {
+            name: 'why',
+            age: 18,
+            friends: {
+                name: 'kobe',
+                address: {
+                    name: '洛杉矶',
+                    detail: '奔驰中心'
+                }
+            },
+            // 特殊类型 set
+            set,
+            // 特殊类型 function
+            run() {
+                console.log('run')
+            },
+            s1: Symbol('abc'),
+            [s1]: 'aaa'
+        }
+        info.self = info
+        const new_obj = deep_copy(info)
+        console.log(new_obj)
+        console.log(new_obj.self === new_obj)
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" />
+    <button>取消</button>
+    <script>
+        const input = document.querySelector('input')
+        const botton = document.querySelector('button')
+
+        function handle_input(...arg) {
+            console.log(this.value)
+            console.log(arg)
+        }
+
+        function hx_debounce(fn, delay, immediate = true) {
+            let timer = null
+            let invoke = false
+
+            function _debounce(...arg) {
+                if (immediate && !invoke) {
+                    fn.apply(this, arg)
+                    invoke = true
+                    return
+                }
+                if (timer) clearTimeout(timer)
+                timer = setTimeout(() => {
+                    fn.apply(this, arg)
+                    timer = null
+                    invoke = false
+                }, delay)
+            }
+            _debounce.cancel = function() {
+                if (timer) clearTimeout(timer)
+                timer = null
+                invoke = false
+            }
+            return _debounce
+        }
+        // input.addEventListener('input', handle_input)
+        const hx_debounce_instance = hx_debounce(handle_input, 1000)
+        input.addEventListener('input', hx_debounce_instance)
+        botton.addEventListener('click', hx_debounce_instance.cancel)
+    </script>
+</body>
+
+</html>

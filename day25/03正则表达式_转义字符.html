@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const re = /./gi
+        const re_1 = /\./gi
+        const message = 'why.188.18'
+        console.log(message.match(re))
+        console.log(message.match(re_1))
+            /**
+             * 常见需要转义的字符
+             * eg:  [] \ ^ $ . | ? * + ()
+             */
+        const filenames = ['abc.html', 'home.jsx', '123.js', 'index.js', 'format.jsx']
+        const re_2 = /jsx?$/
+            // const new_filenames = []
+            // for (const item of filenames) {
+            //     if (re_2.test(item)) {
+            //         new_filenames.push(item)
+            //     }
+            // }
+        const new_filenames = filenames.filter((item) => re_2.test(item))
+        console.log(new_filenames)
+    </script>
+</body>
+
+</html>

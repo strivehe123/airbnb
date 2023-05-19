@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body>
+    <script src="yong.js"></script>
+    <script>
+        const song_list = song.split('\n')
+            // console.log(song_list)
+        const timeRe = /\[(?<min>\d{2}):(?<sec>\d{2})\.(?<secM>\d{2,3})\]/i
+        const lyricInfos = []
+        for (const lintString of song_list) {
+            const result = lintString.match(timeRe)
+                // console.log(result)
+            if (!result) continue
+                // console.log(result)
+            const minTime = result.groups.min * 60 * 1000
+            const secTime = result.groups.sec * 1000
+            const secMTime = result.groups.secM.length == 3 ? result.groups.secM * 1 : result.groups.secM * 10
+            const time = minTime + secTime + secMTime
+                // console.log(time)
+            const content = lintString.replace(timeRe, '').trim()
+                // console.log(time, content)
+            const lyricInfo = {
+                time,
+                content
+            }
+            lyricInfos.push(lyricInfo)
+        }
+        console.log(lyricInfos)
+    </script>
+</body>
+
+</html>

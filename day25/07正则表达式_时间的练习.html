@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function formatTime(timeStamp, fmtString) {
+            const date = new Date(timeStamp)
+            const dataO = {
+                'y+': date.getFullYear(),
+                'M+': date.getMonth() + 1,
+                'd+': date.getDate(),
+                'h+': date.getHours(),
+                'm+': date.getMinutes(),
+                's+': date.getSeconds()
+            }
+            for (const key in dataO) {
+                const keyRe = new RegExp(key)
+                if (keyRe.test(fmtString)) {
+                    const value = (dataO[key] + '').padStart(2, 0)
+
+                    fmtString = fmtString.replace(keyRe, value)
+                }
+            }
+            return fmtString
+        }
+        const timeStamp = new Date().getTime()
+        const str1 = formatTime(timeStamp, 'yyyy-MM-dd hh:mm:ss')
+        console.log(str1)
+    </script>
+</body>
+
+</html>

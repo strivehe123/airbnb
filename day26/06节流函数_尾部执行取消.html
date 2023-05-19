@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" />
+    <button>取消</button>
+    <script>
+        const input = document.querySelector('input')
+        const button = document.querySelector('button')
+
+        function input_handle(...arg) {
+            console.log('输入的值: ', this.value)
+            console.log('参数的值: ', arg)
+        }
+
+        function mythrolle(fn, interval, {
+            leading = true,
+            trailing = false
+        } = {}) {
+            let starttime = 0
+            let timer = null
+            const _throlle = function(...arg) {
+                const nowtime = new Date().getTime()
+                if (!leading && starttime === 0) {
+                    starttime = nowtime
+                }
+
+                const waittime = interval - (nowtime - starttime)
+                if (waittime <= 0) {
+                    if (timer) clearTimeout(timer)
+                    fn.apply(this, arg)
+                    starttime = nowtime
+                    timer = null
+                    return
+                }
+                if (trailing && !timer) {
+                    timer = setTimeout(() => {
+                        fn.apply(this, arg)
+                        starttime = new Date().getTime()
+                        timer = null
+                    }, waittime)
+                }
+            }
+            _throlle.cancel = function() {
+                if (timer) clearTimeout(timer)
+                starttime = 0
+                timer = null
+            }
+            return _throlle
+        }
+        const mythrolle_instance = mythrolle(input_handle, 1000, {
+            trailing: true
+        })
+        input.addEventListener('input', mythrolle_instance)
+        button.addEventListener('click', mythrolle_instance.cancel)
+    </script>
+</body>
+
+</html>
