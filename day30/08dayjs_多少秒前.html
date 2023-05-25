@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body>
+    <script src="https://cdn.staticfile.org/dayjs/1.11.7/dayjs.min.js"></script>
+    <script src="./utils/zh-cn.js"></script>
+    <!-- 会在 dayjs原型上添加fromNow -->
+    <script src="./utils/relativeTime.js"></script>
+    <script>
+        dayjs.locale('zh-cn')
+        dayjs.extend(dayjs_plugin_relativeTime)
+        const day = dayjs.unix(1685011465)
+            // console.log(day.format('YYYY/MM/DD HH:mm:ss'))
+        console.log(day.fromNow())
+    </script>
+</body>
+
+</html>

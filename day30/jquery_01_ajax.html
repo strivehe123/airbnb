@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body>
+    <button class="btn-get">发送请求</button>
+    <button class="btn-cancel">发送取消</button>
+    <ul id="title" class="title-list active" data-name="sakula" data-age="11">
+        <li class="item1">1</li>
+        <li class="item2">2</li>
+        <li class="item3">3</li>
+        <li class="item4">4</li>
+        <li class="item5">
+            5
+            <span>我是span</span>
+        </li>
+    </ul>
+    <script src="https://cdn.staticfile.org/jquery/3.7.0/jquery.js"></script>
+    <script>
+        // 监听文档完全解析
+        $(function() {
+            $('.btn-get').on('click.fuck', clickHandle)
+            $('.btn-cancel').on('click.jump', cancelHandle)
+            let xhr = null
+
+            function clickHandle() {
+                xhr = jQuery.ajax({
+                    url: 'http://httpbin.org/delay/7',
+                    type: 'post',
+                    dataType: 'json',
+                    timeout: 5000,
+                    success: function(res) {
+                        console.log(res)
+                    },
+                    error: function(err) {
+                        console.log('发生错误了')
+                        console.log(err)
+                    }
+                })
+            }
+
+            function cancelHandle() {
+                console.log('取消ajax请求')
+                xhr.abort()
+            }
+            // function clickHandle() {
+            //     // $.ajax({
+            //     //     url: 'http://httpbin.org/get',
+            //     //     type: 'get',
+            //     //     success: function(res) {
+            //     //         console.log(res)
+            //     //         resolve(res)
+            //     //     }
+            //     // })
+            //     const promise = new Promise((resolve, reject) => {
+            //         $.ajax({
+            //             url: 'http://httpbin.org/get',
+            //             type: 'get',
+            //             success: function(res) {
+            //                 console.log(res)
+            //                 resolve(res)
+            //             }
+            //         })
+            //     })
+            //     return promise
+            // }
+        })
+    </script>
+</body>
+
+</html>

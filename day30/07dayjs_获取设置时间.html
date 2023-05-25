@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body>
+    <script src="https://cdn.staticfile.org/dayjs/1.11.7/dayjs.min.js"></script>
+    <script>
+        // const day = dayjs()
+        // 获取时间
+        // console.log(day.year(), day.month() + 1, day.date(), day.hour(), day.minute(), day.second())
+        // 01 解析传入的时间
+        // const day = dayjs('2020-11-11 11:11:11')
+        // 02 解析时间戳  单位是毫秒
+        // const day = dayjs(1685011465032)
+        // 02解析时间戳 单位是秒
+        const day = dayjs.unix(1685011465)
+        console.log(day.format('YYYY/MM/DD HH:mm:ss'))
+    </script>
+</body>
+
+</html>
