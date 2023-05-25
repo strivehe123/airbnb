@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+        .box {
+            height: 80px;
+            width: 200px;
+            background-color: aqua;
+        }
+    </style>
+</head>
+
+<body>
+    <button>切换</button>
+    <div class="box"></div>
+
+    <script src="https://cdn.staticfile.org/jquery/3.7.0/jquery.js"></script>
+    <script>
+        // 监听文档完全解析
+        $(function() {
+            $('button').on('click.fuck', function() {
+                // $('.box').hide()
+                // $('.box').hide()
+                $('.box').toggle({
+                    duration: 3000,
+                    complete: function() {
+                        console.log('完成后回调')
+                    }
+                })
+            })
+        })
+    </script>
+</body>
+
+</html>

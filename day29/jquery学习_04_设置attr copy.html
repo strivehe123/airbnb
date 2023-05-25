@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body>
+    <ul id="title" class="title-list active">
+        <li class="item1">1</li>
+        <li class="item2">2</li>
+        <li class="item3">3</li>
+        <li class="item4">4</li>
+        <li class="item5">
+            5
+            <span>我是span</span>
+        </li>
+    </ul>
+    <script src="https://cdn.staticfile.org/jquery/3.7.0/jquery.js"></script>
+    <script>
+        // 01 获取属性
+        // console.log($('ul').attr('id'))
+        // 02 设置属性
+        // console.log($('ul').attr('name', 'sakul'))
+        // 03 设置多个属性
+        // $('ul').attr({
+        //     name: 'sakula',
+        //     age: 11
+        // })
+        // 04删除属性
+        $('ul').removeAttr('name')
+    </script>
+</body>
+
+</html>

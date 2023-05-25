@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 01 创建XHR对象
+        const xhr = new XMLHttpRequest()
+        const HttpReadyStateDone = 4
+            // 02 监听对象的改变
+        xhr.onreadystatechange = function() {
+                // if (xhr.readyState !== XMLHttpRequest.DONE) return
+                if (xhr.readyState !== 4) return
+                console.log(xhr.response)
+                const res_json = JSON.parse(xhr.response)
+                console.log(res_json)
+            }
+            // 03 配置请求
+        xhr.open('get', 'http://pcapi-xiaotuxian-front-devtest.itheima.net/home/new')
+            // 04 发送请求
+        xhr.send()
+    </script>
+</body>
+
+</html>

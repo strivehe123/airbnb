@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body>
+    <ul id="title" class="title-list active" data-name="sakula" data-age="11">
+        <li class="item1">1</li>
+        <li class="item2">2</li>
+        <li class="item3">3</li>
+        <li class="item4">4</li>
+        <li class="item5">
+            5
+            <span>我是span</span>
+        </li>
+    </ul>
+    <li class="item7">7</li>
+    <script src="https://cdn.staticfile.org/jquery/3.7.0/jquery.js"></script>
+    <script>
+        // 监听文档完全解析
+        $(function() {
+            //    01 创建jQuery对象
+            // $('<span>').css('color', 'red').text('i am span').replaceAll('ul li.item1')
+            // 02 不支持字符串选择器  支持 jQuery对象
+            // $('ul li.item5').replaceWith($('.item7'))
+            // 03
+            $('ul li.item4').replaceWith('<span>111</span>')
+        })
+    </script>
+</body>
+
+</html>

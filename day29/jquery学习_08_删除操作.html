@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body>
+    <ul id="title" class="title-list active" data-name="sakula" data-age="11">
+        <li class="item1">1</li>
+        <li class="item2">2</li>
+        <li class="item3">3</li>
+        <li class="item4">4</li>
+        <li class="item5">
+            5
+            <span>我是span</span>
+        </li>
+    </ul>
+    <li class="item7">7</li>
+    <script src="https://cdn.staticfile.org/jquery/3.7.0/jquery.js"></script>
+    <script>
+        // 监听文档完全解析
+        $(function() {
+            // 01 删除ul的后代元素
+            // $('ul').empty()
+            // 02 删除ul 以及 后代元素
+            // $('ul').remove()
+            // 03
+            // $('ul li').remove('.item1,.item2')
+            // 04
+            // $('ul li.item1').remove()
+        })
+    </script>
+</body>
+
+</html>

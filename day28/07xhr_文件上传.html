@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="file" />
+    <button>上传文件</button>
+    <script>
+        const xhr = new XMLHttpRequest()
+        xhr.onload = function() {}
+        xhr.open('post', '')
+        xhr.responseType = 'json'
+
+        const btn = document.querySelector('button')
+        const file_input = document.querySelector('input')
+        btn.addEventListener('click', function() {
+            const form = new FormData()
+            const file = file_input.files[0]
+            form.append('avatar', file)
+            xhr.send(form)
+        })
+    </script>
+</body>
+
+</html>

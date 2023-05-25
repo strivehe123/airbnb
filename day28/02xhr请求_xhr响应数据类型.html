@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const xhr = new XMLHttpRequest()
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState !== XMLHttpRequest.DONE) return
+            console.log(xhr.response)
+        }
+        xhr.responseType = 'json'
+        xhr.open('get', 'http://pcapi-xiaotuxian-front-devtest.itheima.net/home/new')
+        xhr.send()
+    </script>
+</body>
+
+</html>

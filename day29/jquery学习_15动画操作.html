@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+        .box {
+            height: 80px;
+            width: 200px;
+            background-color: aqua;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box"></div>
+    <button>切换</button>
+    <script src="https://cdn.staticfile.org/jquery/3.7.0/jquery.js"></script>
+    <script>
+        // 监听文档完全解析
+        $(function() {
+            $('button').on('click.fuck', function() {
+                $('.box').animate({
+                        // height: 'toggle',
+                        height: '-=30px',
+                        opacity: 'toggle'
+                    },
+                    2000,
+                    'swing',
+                    function() {
+                        console.log('动画执行完成会回调该函数')
+                    }
+                )
+            })
+        })
+    </script>
+</body>
+
+</html>

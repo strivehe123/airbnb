@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+        .box {
+            position: fixed;
+            bottom: 0;
+            right: 0;
+        }
+        
+        img {
+            vertical-align: top;
+        }
+        
+        .box span {
+            position: absolute;
+            top: 8px;
+            right: 16px;
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+            /* border: 1px solid red; */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <span></span>
+        <div class="top">
+            <img src="./imgs/top.png" alt="" />
+        </div>
+        <div class="bottom">
+            <img src="./imgs/bottom.png" alt="" />
+        </div>
+    </div>
+
+    <script src="https://cdn.staticfile.org/jquery/3.7.0/jquery.js"></script>
+    <script>
+        // 监听文档完全解析
+        $(function() {
+            $('span').on('click', function() {
+                $('.bottom').animate({
+                        height: 0
+                    },
+                    600,
+                    'swing',
+                    function() {
+                        $('.box').animate({
+                                width: 0,
+                                display: 'none'
+                            },
+                            600,
+                            'swing'
+                        )
+                    }
+                )
+            })
+        })
+    </script>
+</body>
+
+</html>
