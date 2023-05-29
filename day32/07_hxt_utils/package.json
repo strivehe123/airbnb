@@ -1,0 +1,19 @@
+{
+    "name": "hxt_utils_00",
+    "version": "1.0.0",
+    "description": "a set for javascript utils write by hxt",
+    "main": "index.js",
+    "scripts": {
+        "yarn-test": "yarn --version"
+    },
+    "keywords": [
+        "math",
+        "hxt",
+        "format"
+    ],
+    "author": "hxt",
+    "license": "MIT",
+    "dependencies": {
+        "yarn": "^1.22.19"
+    }
+}

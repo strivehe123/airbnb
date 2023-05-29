@@ -1,0 +1,1 @@
+(()=>{"use strict";console.log(7),console.log("bar is executing"),console.log(3)})();
